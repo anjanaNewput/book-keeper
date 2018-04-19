@@ -1,0 +1,26 @@
+<div class="login-page">
+  <div class="limiter">
+    <div class="container-login100">
+      <div class="wrap-login100 p-b-20">
+        <div class="wrap-login100-title">
+          Sign in
+        </div>
+        <form class="login100-form" @submit.prevent="submitForm">
+          <div class="wrap-input100 m-t-85 m-b-50" :class="{'has-danger': errors.has('email')}">
+            <input class="input100" :class="hasValue" type="text" name="email" v-model="email" @blur="blurFunction" v-validate="{required: true, email: true}">
+            <span class="focus-input100" data-placeholder="Email"></span>
+            <span v-show="errors.has('email')" class="pull-left text-danger error-text">{{ errors.first('email')}}</span>
+          </div>
+          <div class="wrap-input100 m-b-50" :class="{'has-danger': errors.has('pwd')}">
+            <input class="input100" :class="hasValue" type="password" name="pwd" @blur="blurFunction" v-model="pwd" v-validate="{required: true}">
+            <span class="focus-input100" data-placeholder="Password"></span>
+            <span v-show="errors.has('pwd')" class="pull-left text-danger error-text">{{ errors.first('pwd')}}</span>
+          </div>
+          <div class="container-login100-form-btn">
+            <button class="login100-form-btn">Login</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

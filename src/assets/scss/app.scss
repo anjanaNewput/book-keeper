@@ -1,0 +1,39 @@
+#header {
+  background-color: #FFFFFF;
+  min-height: 70px;
+  color: #444444;
+  border: none;
+
+  .header-cont {
+    min-height: 70px;
+
+    div, ul, a {
+      min-height: 70px;
+    }
+  }
+
+  a {
+    &:hover{
+      color: #339FD8;
+    }
+    font-size: 15px;
+    font-weight: 600;
+    padding: 28px 15px;
+  }
+  .active {
+    a {
+      background-color: transparent;
+      color: #339FD8;
+    }
+  }
+  .logo {
+    width: 210px;
+    height: 30px;
+  }
+}
+
+.footer {
+  background-color: #F2F5F8;
+  padding: 30px;
+  text-align: center;
+}
