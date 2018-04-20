@@ -1,3 +1,44 @@
 <div class="signup-page">
-
+  <div class="limiter">
+    <div class="container-login100 m-t-15 m-b-15">
+      <div class="wrap-login100 p-b-20 m-t-35 m-b-35 col-sm-6 col-sm-offset-3">
+        <div class="wrap-login100-title">
+          Register here
+        </div>
+        <form class="login100-form" @submit.prevent="register">
+          <div class="wrap-input100 m-t-85 m-b-35" :class="{'has-danger': errors.has('firmName')}">
+            <input class="input100" :class="{'has-val': hasValue}" type="text" name="firmName" v-model="firmName" @blur="blurFunction" v-validate="{required: true}">
+            <span class="focus-input100" data-placeholder="Your Company/Firm Name"></span>
+            <span v-show="errors.has('firmName')" class="pull-left text-danger error-text">{{ errors.first('firmName')}}</span>
+          </div>
+          <div class="wrap-input100 m-b-35 wrap-input100-year" :class="{'has-danger': errors.has('financialYear')}">
+            <input class="input100" :class="{'has-val': hasValue}" type="text" name="financialYear" v-model.lazy="financialYear" @blur="blurFunction" v-validate="{required: true, isNumeric: true}">
+            <span class="focus-input100" data-placeholder="Financial Year"></span>
+            <span v-show="errors.has('financialYear')" class="pull-left text-danger error-text">{{ errors.first('financialYear')}}</span>
+          </div>
+          <div class="m-b-35 wrap-input100-year">
+            <span v-if="financialYear" v-html="finantialYearRange" class="wrap-input100-year-text"></span>
+          </div>
+          <div class="wrap-input100 m-b-35" :class="{'has-danger': errors.has('bankAccounts.bankAccount1')}">
+            <input class="input100" :class="{'has-val': hasValue}" type="text" name="bankAccounts.bankAccount1" @blur="blurFunction" v-model="bankAccounts.bankAccount1" v-validate="{required: true}">
+            <span class="focus-input100" data-placeholder="Bank account I"></span>
+            <span v-show="errors.has('bankAccounts.bankAccount1')" class="pull-left text-danger error-text">{{ errors.first('bankAccounts.bankAccount1')}}</span>
+          </div>
+          <div class="wrap-input100 m-b-35" :class="{'has-danger': errors.has('bankAccounts.bankAccount2')}">
+            <input class="input100" :class="{'has-val': hasValue}" type="text" name="bankAccounts.bankAccount2" @blur="blurFunction" v-model="bankAccounts.bankAccount2" v-validate="{required: true}">
+            <span class="focus-input100" data-placeholder="Bank account II"></span>
+            <span v-show="errors.has('bankAccounts.bankAccount2')" class="pull-left text-danger error-text">{{ errors.first('bankAccounts.bankAccount2')}}</span>
+          </div>
+          <div class="wrap-input100 m-b-35" :class="{'has-danger': errors.has('bankAccounts.bankAccount3')}">
+            <input class="input100" :class="{'has-val': hasValue}" type="text" name="bankAccounts.bankAccount3" @blur="blurFunction" v-model="bankAccounts.bankAccount3" v-validate="{required: true}">
+            <span class="focus-input100" data-placeholder="Bank account III"></span>
+            <span v-show="errors.has('bankAccounts.bankAccount3')" class="pull-left text-danger error-text">{{ errors.first('bankAccounts.bankAccount3')}}</span>
+          </div>
+          <div class="container-login100-form-btn m-t-25">
+            <button class="login100-form-btn">Register</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
 </div>

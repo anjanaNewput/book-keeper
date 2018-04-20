@@ -3,16 +3,27 @@
     <nav class="navbar navbar-default" id="header">
       <div class="container-fluid header-cont">
         <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
           <router-link class="navbar-brand" to="/"><img class="logo" src="./assets/img/logo.png"></router-link>
         </div>
-        <ul class="nav navbar-nav navbar-right">
-          <li class="active"><router-link to="/">Home</router-link></li>
-          <li v-if="userEmail"><router-link to="/">Expenditure</router-link></li>
-          <li v-if="userEmail"><router-link to="/">Income</router-link></li>
-          <li v-if="userEmail"><router-link to="/">Deposit</router-link></li>
-          <li v-if="userEmail"><router-link to="">Withdraw</router-link></li>
-          <li v-if="userEmail"><a @click="logout">{{userEmail}}  <span class="glyphicon glyphicon-off"></span></a></li>
-        </ul>
+        <div class="collapse navbar-collapse" id="myNavbar">
+          <ul class="nav navbar-nav navbar-right">
+            <li class="active"><router-link to="/" data-toggle="collapse" data-target=".navbar-collapse">Home</router-link></li>
+            <li v-if="userEmail"><router-link to="/" data-toggle="collapse" data-target=".navbar-collapse">Expenditure</router-link></li>
+            <li v-if="userEmail" data-toggle="collapse" data-target=".navbar-collapse"><router-link to="/">Income</router-link></li>
+            <li v-if="userEmail" data-toggle="collapse" data-target=".navbar-collapse"><router-link to="/">Deposit</router-link></li>
+            <li v-if="userEmail" data-toggle="collapse" data-target=".navbar-collapse"><router-link to="">Withdraw</router-link></li>
+            <li v-if="userEmail" class="user-profile">
+              <a @click="logout" data-toggle="collapse" data-target=".navbar-collapse">{{userEmail}}
+                <span class="glyphicon glyphicon-off"></span>
+              </a>
+            </li>
+          </ul>
+        </div>
       </div>
     </nav>
     <router-view/>

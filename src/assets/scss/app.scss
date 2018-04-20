@@ -10,6 +10,20 @@
     div, ul, a {
       min-height: 70px;
     }
+    .navbar-header {
+      .navbar-toggle {
+        .icon-bar {
+          background-color: #339FD8;
+        }
+      }
+    }
+    .navbar-collapse {
+      .navbar-right {
+        .user-profile {
+          cursor: pointer;
+        }
+      }
+    }
   }
 
   a {
