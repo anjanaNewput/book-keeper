@@ -7,11 +7,11 @@
         </div>
         <ul class="nav navbar-nav navbar-right">
           <li class="active"><router-link to="/">Home</router-link></li>
-          <li><router-link to="/">Expenditure</router-link></li>
-          <li><router-link to="/">Income</router-link></li>
-          <li><router-link to="/">Deposit</router-link></li>
-          <li><router-link to="">Withdraw</router-link></li>
-          <li><a @click="logout"><span class="glyphicon glyphicon-off"></span></a></li>
+          <li v-if="userEmail"><router-link to="/">Expenditure</router-link></li>
+          <li v-if="userEmail"><router-link to="/">Income</router-link></li>
+          <li v-if="userEmail"><router-link to="/">Deposit</router-link></li>
+          <li v-if="userEmail"><router-link to="">Withdraw</router-link></li>
+          <li v-if="userEmail"><a @click="logout">{{userEmail}}  <span class="glyphicon glyphicon-off"></span></a></li>
         </ul>
       </div>
     </nav>
@@ -24,9 +24,25 @@
 <script>
 export default {
   name: 'App',
+  computed: {
+    userEmail: function () {
+      return this.$store.state.email
+    },
+    userLoggedIn: function () {
+      return this.$store.state.isUserLogged
+    }
+  },
+  mounted: function () {
+    this.$store.commit('checkUser', this.$localStorage.get('userLoggedIn') != null ? this.$localStorage.get('userLoggedIn') : false)
+    this.$store.commit('setEmail', this.$localStorage.get('email') != null ? this.$localStorage.get('email') : '')
+  },
   methods: {
-    logout () {
-      alert('logout')
+    logout: function () {
+      this.$localStorage.remove('userLoggedIn')
+      this.$localStorage.remove('email')
+      this.$store.commit('setEmail', '')
+      this.$store.commit('checkUser', false)
+      this.$router.push('/')
     }
   }
 }
