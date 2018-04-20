@@ -3,7 +3,7 @@
     <div class="hero-text-block text-center col-md-6">
       <p class="title">BookKeeping</p>
       <p class="sub-title">Focusing on your finance</p>
-      <div class="">
+      <div class="" v-if="!isLoggedIn">
         <button class="btn cta-btn btn-lg" @click="signup">Sign Up</button>
         <button class="btn cta-btn btn-lg" @click="login">Login</button>
       </div>

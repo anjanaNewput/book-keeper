@@ -10,17 +10,33 @@ export default new Router({
     {
       path: '/',
       name: 'Home',
-      component: Home
+      component: Home,
+      meta: {
+        authRequired: false
+      }
     },
     {
       path: '/sign-up',
       name: 'SignUp',
-      component: SignUp
+      component: SignUp,
+      meta: {
+        authRequired: false
+      }
     },
     {
       path: '/login',
       name: 'Login',
-      component: Login
+      component: Login,
+      meta: {
+        authRequired: false
+      }
+    },
+    {
+      path: '/dashboard',
+      name: 'Dashboard',
+      meta: {
+        authRequired: true
+      }
     }
   ],
   mode: 'history'
