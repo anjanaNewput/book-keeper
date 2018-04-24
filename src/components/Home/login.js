@@ -1,42 +1,39 @@
 export default {
   data () {
     return {
-      pwd: '',
+      password: '',
       hasVal: '',
       email: ''
     }
   },
   methods: {
-    submitForm: function (submitEvent) {
+    login: function (event) {
       this.$validator.validateAll().then((result) => {
         if (result) {
-          if (this.email === 'anjana@newput.com' && this.pwd === '123456') {
-            this.onLoginSuccess(this, this.email)
+          if (this.email === 'anjana@newput.com' && this.password === '123456') {
+            this.onLoginSuccess(this.email)
+          } else {
+             alert('Please Enter the correct email and password')
+             this.email= ''
+             this.password= ''
+             event.target.reset();
           }
-        //  return
         }
       })
     },
-    blurFunction () {
-      if (this.email || this.pwd) {
-        this.hasVal = 'has-val'
+    blurFunction (e) {
+      if (e.target.value) {
+        e.target.className = e.target.className + ' ' + 'has-val'
       } else {
-        this.hasVal = ''
+        e.target.className = e.target.className + ' '
       }
     },
-    onLoginSuccess (self, email) {
-      self.$store.commit('setEmail', email)
-      self.$localStorage.set('email', email)
-      self.$localStorage.set('userLoggedIn', true)
-      self.$store.commit('checkUser', true)
-      self.$router.push('/dashboard')
-    }
-  },
-  computed: {
-    hasValue () {
-      if (this.hasVal) {
-        return this.hasVal
-      }
+    onLoginSuccess (email) {
+      this.$store.commit('setEmail', email)
+      this.$localStorage.set('email', email)
+      this.$localStorage.set('userLoggedIn', true)
+      this.$store.commit('checkUser', true)
+      this.$router.push('/dashboard')
     }
   }
 }
