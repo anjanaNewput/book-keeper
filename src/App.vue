@@ -13,10 +13,6 @@
         <div class="collapse navbar-collapse" id="myNavbar">
           <ul class="nav navbar-nav navbar-right">
             <li class="active"><router-link to="/" data-toggle="collapse" data-target=".navbar-collapse">Home</router-link></li>
-            <li v-if="userEmail"><router-link to="/" data-toggle="collapse" data-target=".navbar-collapse">Expenditure</router-link></li>
-            <li v-if="userEmail" data-toggle="collapse" data-target=".navbar-collapse"><router-link to="/">Income</router-link></li>
-            <li v-if="userEmail" data-toggle="collapse" data-target=".navbar-collapse"><router-link to="/">Deposit</router-link></li>
-            <li v-if="userEmail" data-toggle="collapse" data-target=".navbar-collapse"><router-link to="">Withdraw</router-link></li>
             <li v-if="userEmail" class="user-profile">
               <a @click="logout" data-toggle="collapse" data-target=".navbar-collapse">{{userEmail}}
                 <span class="glyphicon glyphicon-off"></span>

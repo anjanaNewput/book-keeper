@@ -1,28 +1,40 @@
-import { Validator, ErrorBag } from 'vee-validate'
+import { Validator } from 'vee-validate'
+
 export default {
   data () {
     return {
+      config: {
+        format: 'YYYY ',
+        useCurrent: false,
+        showClear: true,
+        showClose: true,
+        debug: true
+      },
       firmName: '',
+      email: '',
+      password: '',
       bankAccounts: {
         bankAccount1: '',
         bankAccount2: '',
         bankAccount3: ''
       },
-      financialYear: '',
+      fromFinancialYear: null,
+      toFinancialYear: null,
       hasVal: '',
       dictionary: {
         attributes: {
           'firmName': 'Firm/Company name',
-          'bankAccounts.bankAccount1': 'Bank account I',
-          'bankAccounts.bankAccount2': 'Bank account II',
-          'bankAccounts.bankAccount3': 'Bank account III',
-          'financialYear': 'Financial year'
+          'bankAccounts.bankAccount1': 'Bank I',
+          'bankAccounts.bankAccount2': 'Bank II',
+          'bankAccounts.bankAccount3': 'Bank III',
+          'financialYear': 'Financial year',
+          'email': 'Email'
         },
         custom: {
-          firmName: {
-            required: () => 'Firm/Company name can not be empty',
+          fromFinancialYear: {
+            required: 'Required'
           },
-          financialYear: {
+          toFinancialYear: {
             required: 'Required'
           }
         }
@@ -32,15 +44,23 @@ export default {
   mounted () {
     Validator.extend('isNumeric', {
       getMessage: (field) => {
-        return 'enter valid year'
+        return 'Enter valid year!'
       },
       validate: (value) => {
         if(!/^[1-2][0-9][0-9][0-9]/.test(value)){
           this.financialYear =''
           return false;
         } else {
-           return true;
+          return true;
         }
+      }
+    });
+    Validator.extend('email', {
+      getMessage: (field) => {
+        return 'Enter a valid email address'
+      },
+      validate: (value) => {
+        return (/^[a-zA-Z0-9._-]+@[a-zA-Z]+\.com$/i.test(value))
       }
     });
     this.$validator.localize('en', this.dictionary)
@@ -58,23 +78,18 @@ export default {
     },
     blurFunction (e) {
       if (e.target.value) {
-        this.hasVal = 'has-val'
+        if(e.target.className.includes('has-val')){
+            e.target.className = e.target.className
+        } else {
+          e.target.className = e.target.className + ' ' + 'has-val'
+        }
       } else {
-        this.hasVal = ''
-      }
-    }
-  },
-  computed: {
-    hasValue () {
-      if (this.hasVal) {
-        return true
-      } else {
-        return false
+        e.target.className = e.target.className
       }
     },
-    finantialYearRange () {
-      if(this.financialYear){
-        return `<h4>01/04/${this.financialYear} - 31/03/${new Date(this.financialYear).getFullYear()+1}</h4>`
+    showPicker (e) {
+      if(e.target.value) {
+        e.target.value = ''
       }
     }
   }

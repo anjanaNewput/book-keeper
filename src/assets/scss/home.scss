@@ -64,12 +64,12 @@
 // ========== login-page and signup-page ==========
 .login-page, .signup-page {
   background-color: #F1F1F1;
-  input, textarea {
+  input, textarea, select {
   	outline: none;
   	border: none;
   }
 
-  textarea:focus, input:focus {
+  textarea:focus, input:focus, select:focus {
     border-color: transparent !important;
   }
 
@@ -77,6 +77,11 @@
   input:focus:-moz-placeholder { color:transparent; }
   input:focus::-moz-placeholder { color:transparent; }
   input:focus:-ms-input-placeholder { color:transparent; }
+
+  select:focus::-webkit-input-placeholder { color:transparent; }
+  select:focus:-moz-placeholder { color:transparent; }
+  select:focus::-moz-placeholder { color:transparent; }
+  select:focus:-ms-input-placeholder { color:transparent; }
 
   // textarea:focus::-webkit-input-placeholder { color:transparent; }
   // textarea:focus:-moz-placeholder { color:transparent; }
@@ -109,7 +114,7 @@
     margin: 0 auto;
 
   	.container-login100 {
-      min-height: 100vh;
+      min-height: 500px;
   	  width: 100%;
       display: -webkit-box;
       display: -webkit-flex;
@@ -123,7 +128,7 @@
       .wrap-login100 {
       	background: #fff;
         border-radius: 5px;
-        margin: 20px auto;
+        margin: 15px;
         padding: 30px;
 
         box-shadow: 0px 0px 10px 0px rgba(51, 159, 216, 0.5);
@@ -160,6 +165,7 @@
 
             .input100 {
               background: transparent;
+              box-shadow: none;
               color: #555555;
               display: block;
           	  font-family: Poppins-SemiBold;
@@ -187,16 +193,41 @@
               padding-top: 10px;
             }
           }
+
           .has-danger {
         	  border-bottom: 3px solid #a94442;
         	}
 
           .wrap-input100-year {
             display: inline-flex;
-            width: 49%;
             .wrap-input100-year-text {
               font-family: Poppins-Medium;
+              font-size: 16px;
+              line-height: 3;
             }
+            .input100 {
+              background: transparent;
+              box-shadow: none;
+              color: #555555;
+              display: block;
+          	  font-family: Poppins-SemiBold;
+          	  font-size: 18px;
+          	  height: 52px;
+          	  line-height: 1.2;
+              padding: 0 5px;
+          	  width: 100%;
+          	}
+
+            .focus-input100 {
+          	  display: block;
+          	  height: 100%;
+          	  left: 0;
+          	  pointer-events: none;
+          	  position: absolute;
+          	  text-align: left;
+          	  top: 0;
+          	  width: 100%;
+          	}
           }
 
           .container-login100-form-btn {
@@ -271,8 +302,8 @@
 
         .input100:focus + .focus-input100::after {
           color: #555555;
-          top: -5px;
           font-size: 15px;
+          top: -5px;
         }
 
         .input100:focus + .focus-input100::before {
@@ -280,8 +311,8 @@
         }
         .has-val.input100 + .focus-input100::after {
           color: #555555;
-          top: -5px;
           font-size: 15px;
+          top: -5px;
         }
 
         .has-val.input100 + .focus-input100::before {
@@ -290,41 +321,98 @@
       }
   	}
   }
+}
+.p-t-80 {
+  padding-top: 80px;
+}
+.p-t-85 {
+  padding-top: 85px;
+}
+.p-b-20 {
+  padding-bottom: 20px;
+}
+.p-b-70 {
+  padding-bottom: 70px;
+}
+.m-b-8 {
+  margin-bottom: 8px;
+}
+.m-b-50 {
+  margin-bottom: 50px;
+}
+.m-b-35 {
+  margin-bottom: 35px;
+}
+.m-b-15 {
+  margin-bottom: 15px;
+}
+.m-b-40 {
+  margin-bottom: 40px;
+}
+.m-t-15 {
+  margin-top: 15px;
+}
+.m-t-25 {
+  margin-top: 25px;
+}
+.m-t-35 {
+  margin-top: 35px;
+}
 
-  .p-t-80 {
-    padding-top: 80px;
+.signup-page {
+  .wrap-all-input100 {
+    border: 1px solid #339FD8;
+    padding: 30px 10px;
+    position: relative;
+
+    .wrap-all-input100-heading {
+      background-color: #339FD8;
+      border: 1px solid #339FD8;
+      color: #fff;
+      line-height: 1.5;
+      padding: 2px 5px;
+      position: absolute;
+      top: -13px;
+    }
   }
-  .p-t-85 {
-    padding-top: 85px;
+}
+
+@media screen and (max-width: 375px) {
+  .login-page, .signup-page {
+    .limiter {
+      .container-login100 {
+        min-height: 600px;
+      }
+    }
   }
-  .p-b-20 {
-    padding-bottom: 20px;
+}
+
+@media screen and (max-width: 414px) and (min-width: 376px) {
+  .login-page, .signup-page {
+    .limiter {
+      .container-login100 {
+        min-height: 550px;
+      }
+    }
   }
-  .p-b-70 {
-    padding-bottom: 70px;
+}
+
+@media screen and (max-width: 768px) and (min-width: 415px) {
+  .login-page, .signup-page {
+    .limiter {
+      .container-login100 {
+        min-height: 828px;
+      }
+    }
   }
-  .m-b-8 {
-    margin-bottom: 8px;
-  }
-  .m-b-50 {
-    margin-bottom: 50px;
-  }
-  .m-b-35 {
-    margin-bottom: 35px;
-  }
-  .m-b-15 {
-    margin-bottom: 15px;
-  }
-  .m-b-40 {
-    margin-bottom: 40px;
-  }
-  .m-t-15 {
-    margin-top: 15px;
-  }
-  .m-t-25 {
-    margin-top: 25px;
-  }
-  .m-t-35 {
-    margin-top: 35px;
+}
+
+@media screen and (max-width: 1024px) and (min-width: 769px) {
+  .login-page, .signup-page {
+    .limiter {
+      .container-login100 {
+        min-height: 1140px;
+      }
+    }
   }
 }

@@ -21,11 +21,11 @@ export default {
         }
       })
     },
-    blurFunction () {
-      if (this.email || this.password) {
-        this.hasVal = 'has-val'
+    blurFunction (e) {
+      if (e.target.value) {
+        e.target.className = e.target.className + ' ' + 'has-val'
       } else {
-        this.hasVal = ''
+        e.target.className = e.target.className + ' '
       }
     },
     onLoginSuccess (email) {
@@ -34,13 +34,6 @@ export default {
       this.$localStorage.set('userLoggedIn', true)
       this.$store.commit('checkUser', true)
       this.$router.push('/dashboard')
-    }
-  },
-  computed: {
-    hasValue () {
-      if (this.hasVal) {
-        return this.hasVal
-      }
     }
   }
 }

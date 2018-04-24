@@ -16,6 +16,12 @@
           background-color: #339FD8;
         }
       }
+      button[aria-expanded="true"]{
+        background-color: #339FD8;
+        .icon-bar {
+          background-color: #fff;
+        }
+      }
     }
     .navbar-collapse {
       .navbar-right {

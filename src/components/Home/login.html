@@ -1,18 +1,18 @@
 <div class="login-page">
   <div class="limiter">
     <div class="container-login100">
-      <div class="wrap-login100 p-b-20 m-t-35 m-b-35 col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3">
+      <div class="wrap-login100 p-b-20 m-t-35 m-b-35 col-sm-8 col-sm-offset-2 col-md-4 col-md-offset-4 col-xs-12">
         <div class="wrap-login100-title">
           Login
         </div>
         <form class="login100-form" @submit.prevent="login">
           <div class="wrap-input100 m-t-85 m-b-50" :class="{'has-danger': errors.has('email')}">
-            <input class="input100" :class="hasValue" type="text" name="email" v-model="email" @blur="blurFunction" v-validate="{required: true, email: true}">
+            <input class="input100" type="text" name="email" v-model="email" @blur="blurFunction" v-validate="{required: true, email: true}">
             <span class="focus-input100" data-placeholder="Email"></span>
             <span v-show="errors.has('email')" class="pull-left text-danger error-text">{{ errors.first('email')}}</span>
           </div>
           <div class="wrap-input100 m-b-50" :class="{'has-danger': errors.has('password')}">
-            <input class="input100" :class="hasValue" type="password" name="password" @blur="blurFunction" v-model="password" v-validate="{required: true}">
+            <input class="input100" type="password" name="password" @blur="blurFunction" v-model="password" v-validate="{required: true}">
             <span class="focus-input100" data-placeholder="Password"></span>
             <span v-show="errors.has('password')" class="pull-left text-danger error-text">{{ errors.first('password')}}</span>
           </div>

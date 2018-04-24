@@ -4,10 +4,13 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import VeeValidate from 'vee-validate'
-import 'bootstrap'
-import { store } from './store'
+import datePicker from 'vue-bootstrap-datetimepicker'
 import VueLocalStorage from 'vue-localstorage'
 
+import { store } from './store'
+
+import 'eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.css'
+Vue.use(datePicker)
 Vue.use(VeeValidate)
 Vue.use(VueLocalStorage)
 Vue.config.productionTip = false
