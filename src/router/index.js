@@ -3,6 +3,9 @@ import Router from 'vue-router'
 import Home from '@/components/Home/Home.vue'
 import SignUp from '@/components/Home/SignUp.vue'
 import Login from '@/components/Home/Login.vue'
+import Dashboard from '@/components/Dashboard/Dashborad.vue'
+import Expenses from '@/components/Dashboard/Expenses.vue'
+import Income from '@/components/Dashboard/Income.vue'
 Vue.use(Router)
 
 export default new Router({
@@ -34,6 +37,23 @@ export default new Router({
     {
       path: '/dashboard',
       name: 'Dashboard',
+      component: Dashboard,
+      meta: {
+        authRequired: true
+      }
+    },
+    {
+      path: '/income',
+      name: 'Income',
+      component: Income,
+      meta: {
+        authRequired: true
+      }
+    },
+    {
+      path: '/expanses',
+      name: 'Expenses',
+      component: Expenses,
       meta: {
         authRequired: true
       }

@@ -16,6 +16,14 @@
               <router-link to="/" class="hidden-xs">Home</router-link>
               <router-link to="/" class="visible-xs" data-toggle="collapse" data-target=".navbar-collapse">Home</router-link>
             </li>
+            <li class="dropdown" v-if="userEmail">
+              <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">My Profile<span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a>Setup Company</a></li>
+                <li><a>Credit sale setup</a></li>
+                <li><a>Credit purchase setup</a></li>
+              </ul>
+            </li>
             <li v-if="userEmail" class="user-profile">
               <a @click="logout" class="hidden-xs">{{userEmail}}
                 <span class="glyphicon glyphicon-off"></span>
@@ -24,11 +32,12 @@
                 <span class="glyphicon glyphicon-off"></span>
               </a>
             </li>
+
           </ul>
         </div>
       </div>
     </nav>
-    <router-view/>
+    <router-view class="page"/>
     <div class="footer">Copyright &copy; 2018 by Newput Inc. All rights reserved. BookKeeper and BookKeeper logo are trademarks of Newput Inc. Patent pending
     </div>
   </div>
