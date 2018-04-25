@@ -1,25 +1,72 @@
 <div class="login-page">
-  <div class="limiter">
-    <div class="container-login100">
-      <div class="wrap-login100 p-b-20 m-t-35 m-b-35 col-sm-8 col-sm-offset-2 col-md-4 col-md-offset-4 col-xs-12">
-        <div class="wrap-login100-title">
-          Login
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-8 col-sm-offset-2 col-md-4 col-md-offset-4">
+        <div class="wrap-login">
+          <div class="wrap-login-title">
+            Login
+          </div>
+          <form v-show="viaEmail" class="login-form" data-vv-scope="form-2" @submit.prevent="validateForm('form-2')">
+            <div class="form-group">
+              <label for="email" class="control-label" :class="{'error-text': errors.has('form-2.email')}">Email</label>
+              <input type="text" class="form-control" id="email" name="email" placeholder="Email" :class="{'has-danger': errors.has('form-2.email')}"
+              v-model="mail"
+              v-validate="'required|email'"
+              >
+              <span v-show="errors.has('form-2.email')" class="error-text">{{ errors.first('form-2.email')}}</span>
+            </div>
+
+            <div class="form-group">
+              <label for="password" class="control-label" :class="{'error-text': errors.has('form-2.password')}">Password</label>
+              <input type="password" class="form-control" id="password" name="password" placeholder="Password" :class="{'has-danger': errors.has('form-2.password')}"
+              v-model="password"
+              v-validate="'required'"
+              >
+              <span v-show="errors.has('form-2.password')" class="error-text">{{ errors.first('form-2.password')}}</span>
+            </div>
+            <div class="row btn-wrapper">
+              <div class="col-sm-8 col-xs-7">
+                <a @click="loginViaEmail">Login using mobile no.</a>
+              </div>
+              <div class="col-sm-4 hidden-xs">
+                <button class="btn btn-primary login-form-btn pull-right">Login</button>
+              </div>
+              <div class="col-sm-4 col-xs-5 visible-xs">
+                <button class="btn btn-primary login-form-btn">Login</button>
+              </div>
+            </div>
+          </form>
+          <form v-show="!viaEmail" class="login-form" @submit.prevent="validateForm('form-1')" data-vv-scope="form-1">
+            <div class="form-group">
+              <label for="mob" class="control-label" :class="{'error-text': errors.has('form-1.mob')}">Mobile</label>
+              <input class="form-control" type="tel" name="mob" id="mob" placeholder="Mobile no." v-validate="'required|max:10|min:10'" :class="{'has-danger': errors.has('form-1.mob')}"
+              v-model="mob"
+              >
+              <span v-show="errors.has('form-1.mob')" class="error-text">{{ errors.first('form-1.mob')}}</span>
+            </div>
+            <div class="row btn-wrapper">
+              <div class="col-sm-8 col-xs-7">
+                <a @click="loginViaEmail">Login using email</a>
+              </div>
+              <div class="col-sm-4 hidden-xs">
+                <button class="btn btn-primary login-form-btn pull-right">Get OTP</button>
+              </div>
+              <div class="col-sm-4 col-xs-5 visible-xs">
+                <button class="btn btn-primary login-form-btn">Get OTP</button>
+              </div>
+            </div>
+          </form>
+          <div class="container-fluid other-links-wrapper">
+            <div class="row">
+              <div class="col-sm-6 text-center">
+                <router-link to='/sign-up'>New user? Sign up</router-link>
+              </div>
+              <div class="col-sm-6 text-center">
+                <router-link to='/sign-up'>Forgot password?</router-link>
+              </div>
+            </div>
+          </div>
         </div>
-        <form class="login100-form" @submit.prevent="login">
-          <div class="wrap-input100 m-t-85 m-b-50" :class="{'has-danger': errors.has('email')}">
-            <input class="input100" type="text" name="email" v-model="email" @blur="blurFunction" v-validate="{required: true, email: true}">
-            <span class="focus-input100" data-placeholder="Email"></span>
-            <span v-show="errors.has('email')" class="pull-left text-danger error-text">{{ errors.first('email')}}</span>
-          </div>
-          <div class="wrap-input100 m-b-50" :class="{'has-danger': errors.has('password')}">
-            <input class="input100" type="password" name="password" @blur="blurFunction" v-model="password" v-validate="{required: true}">
-            <span class="focus-input100" data-placeholder="Password"></span>
-            <span v-show="errors.has('password')" class="pull-left text-danger error-text">{{ errors.first('password')}}</span>
-          </div>
-          <div class="container-login100-form-btn">
-            <button class="login100-form-btn">Login</button>
-          </div>
-        </form>
       </div>
     </div>
   </div>

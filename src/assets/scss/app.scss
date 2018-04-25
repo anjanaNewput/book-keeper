@@ -1,8 +1,18 @@
+@import './variables.scss';
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
 #header {
-  background-color: #FFFFFF;
-  min-height: 70px;
-  color: #444444;
+  background-color: $white-color;
   border: none;
+  color: $dark-gray;
+  min-height: 70px;
 
   .header-cont {
     min-height: 70px;
@@ -13,13 +23,13 @@
     .navbar-header {
       .navbar-toggle {
         .icon-bar {
-          background-color: #339FD8;
+          background-color: $theme-color;
         }
       }
       button[aria-expanded="true"]{
-        background-color: #339FD8;
+        background-color: $theme-color;
         .icon-bar {
-          background-color: #fff;
+          background-color: $white-color;
         }
       }
     }
@@ -34,26 +44,26 @@
 
   a {
     &:hover{
-      color: #339FD8;
+      color: $theme-color;
     }
     font-size: 15px;
-    font-weight: 600;
+    font-weight: 500;
     padding: 28px 15px;
   }
   .active {
     a {
       background-color: transparent;
-      color: #339FD8;
+      color: $theme-color;
     }
   }
   .logo {
-    width: 210px;
     height: 30px;
+    width: 210px;
   }
 }
 
 .footer {
+  color: $theme-color;
   padding: 30px;
-  color: #339FD8;
   text-align: center;
 }
