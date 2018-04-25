@@ -1,9 +1,9 @@
 <template>
   <div id="app">
-    <nav class="navbar navbar-default" id="header">
-      <div class="container-fluid header-cont">
+    <nav class="navbar navbar-default" id="header" role="navigation">
+      <div class="container header-cont">
         <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
@@ -12,9 +12,15 @@
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
           <ul class="nav navbar-nav navbar-right">
-            <li class="active"><router-link to="/" data-toggle="collapse" data-target=".navbar-collapse">Home</router-link></li>
+            <li class="active">
+              <router-link to="/" class="hidden-xs">Home</router-link>
+              <router-link to="/" class="visible-xs" data-toggle="collapse" data-target=".navbar-collapse">Home</router-link>
+            </li>
             <li v-if="userEmail" class="user-profile">
-              <a @click="logout" data-toggle="collapse" data-target=".navbar-collapse">{{userEmail}}
+              <a @click="logout" class="hidden-xs">{{userEmail}}
+                <span class="glyphicon glyphicon-off"></span>
+              </a>
+              <a @click="logout" data-toggle="collapse" data-target=".navbar-collapse" class="visible-xs">{{userEmail}}
                 <span class="glyphicon glyphicon-off"></span>
               </a>
             </li>
