@@ -1,0 +1,55 @@
+<div class="form-content">
+  <div class="row amt-bal">
+    <div class="col-xs-6">Cash Balance: 1,23,3000</div>
+    <div class="col-xs-6 text-right">Bank Balance: 20,30,000</div>
+  </div>
+  <form class="form row" @submit.prevent="addEntry">
+    <div>
+      <div class="form-group">
+        <label class="col-md-4 col-xs-12">Date:</label>
+        <div class="input-group col-md-8 col-xs-12">
+          <date-picker class="datepicker" name="txnDate" v-model="txnDate" :first-day-of-week="1" :lang="lang" :format="'dd/MM/yyyy'" v-validate="'required'"></date-picker>
+          <div><span v-show="errors.has('txnDate')" class="error-text">{{ errors.first('txnDate')}}</span></div>
+        </div>
+      </div>
+      <div class="form-group">
+        <slot name="dropdown"></slot>
+      </div>
+      <div class="form-group">
+        <label class="col-md-4 col-xs-12">Amount:</label>
+        <div class="input-group col-md-8 col-xs-12">
+          <input type="text" class="form-control" v-model="amount" v-validate="'required|numeric'" name="amount"/>
+          <span v-show="errors.has('amount')" class="error-text">{{ errors.first('amount')}}</span>
+        </div>
+      </div>
+      <slot name="to"></slot>
+      <div class="form-group">
+        <slot name="for"></slot>
+        <div class="input-group col-md-8 col-xs-12">
+          <input type="text" name="for" class="form-control" v-model="forReasonText" v-validate="'required'"/>
+          <span v-show="errors.has('for')" class="error-text">{{ errors.first('for')}}</span>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-4">Payment Type</label>
+        <div class="col-md-8">
+          <div class="col-xs-4 text-center">
+            <input class="form-check-input" name="payment-mode" v-model="payType" type="radio" id="cash" value="0">
+            <label class="form-check-label" for="cash">Cash</label>
+          </div>
+          <div class="col-xs-4 text-center">
+            <input class="form-check-input" name="payment-mode" type="radio" v-model="payType" id="bank" value="1">
+            <label class="form-check-label" for="bank">Bank</label>
+          </div>
+          <div class="col-xs-4 text-center">
+            <input class="form-check-input" name="payment-mode" type="radio" v-model="payType" id="credit" value="2">
+            <label class="form-check-label" for="credit">Credit</label>
+          </div>
+        </div>
+      </div>
+      <div class="text-center form-group">
+        <button class="btn app-btn">Add</button>
+      </div>
+    </div>
+  </form>
+</div>

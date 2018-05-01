@@ -1,0 +1,27 @@
+@import './variables.scss';
+
+.company-info {
+  .company-info-wrap {
+    .company-info-form {
+      .bank-details {
+        .bank-details-title {
+          font-size: 15px;
+          font-weight: 500;
+        }
+      }
+    }
+    .form-control.has-danger, .has-danger {
+      border: 2px solid $red-color;
+    }
+  }
+}
+
+@media screen and (max-width: 415px) {
+  .company-info {
+    .company-info-wrap {
+      .company-info-form {
+        padding: 15px 0px;
+      }
+    }
+  }
+}

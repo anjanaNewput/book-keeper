@@ -1,0 +1,6 @@
+<div class="dashboard app-form">
+  <ul class="list-inline" id="navigation-menu">
+    <li v-for="(menu, index) in menus" :class="{ active: activeMenu == index}" v-bind:key="menu" @click="menuClicked(menu, index)"><a>{{menu}}</a></li>
+  </ul>
+  <router-view />
+</div>

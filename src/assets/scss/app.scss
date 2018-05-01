@@ -8,6 +8,28 @@ body {
   font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
+.form-group {
+  min-height: 35px;
+}
+
+.page {
+  background: $dark-offwhite-color;
+  min-height: 500px;
+  background-color: #f1f1f1;
+  padding-bottom: 30px;
+
+  .app-btn {
+    background-color: $theme-color;
+    color: $white-color;
+    width: 200px;
+  }
+}
+
+.error-text {
+  color: $red-color;
+  font-weight: 400;
+  padding-top: 10px;
+}
 #header {
   background-color: $white-color;
   border: none;
@@ -17,8 +39,25 @@ body {
   .header-cont {
     min-height: 70px;
 
+    .navbar-header {
+      .navbar-brand {
+        padding: 28px 15px;
+      }
+    }
+
     div, ul, a {
       min-height: 70px;
+    }
+    .dropdown {
+      ul {
+        min-height: 20px;
+        li {
+          height: 40px;
+        }
+        a{
+          padding: 15px;
+        }
+      }
     }
     .navbar-header {
       .navbar-toggle {
@@ -41,21 +80,24 @@ body {
       }
     }
   }
-
-  a {
-    &:hover{
-      color: $theme-color;
+  .nav {
+    li {
+      a {
+        &:hover, &:focus{
+          color: #339FD8;
+        }
+        font-size: 15px;
+        font-weight: 500;
+        padding: 28px 15px;
+        background-color: transparent;
+      }
     }
-    font-size: 15px;
-    font-weight: 500;
-    padding: 28px 15px;
   }
-  .active {
-    a {
+  li.router-link-active.router-link-exact-active {
       background-color: transparent;
       color: $theme-color;
-    }
   }
+
   .logo {
     height: 30px;
     width: 210px;
@@ -66,4 +108,12 @@ body {
   color: $theme-color;
   padding: 30px;
   text-align: center;
+}
+
+@media screen and (max-width: 768px) {
+  .page {
+    .app-btn {
+      width: 100%;
+    }
+  }
 }

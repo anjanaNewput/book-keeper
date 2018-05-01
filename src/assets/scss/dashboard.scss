@@ -1,0 +1,65 @@
+@import './variables.scss';
+.app-form {
+  #navigation-menu {
+    margin-left: 0;
+    background-color: $theme-color;
+    color: #fff;
+    text-align: center;
+    li {
+      height: 100%;
+      padding: 10px;
+      width: 16%;
+
+      a {
+        color: #fff;
+        font-size: 20px;
+        &:hover {
+          text-decoration: none;
+        }
+      }
+    }
+    .active {
+        border-bottom: 5px solid $dark-offwhite-color;
+        color:#000;
+   }
+ }
+
+ .form-content {
+   width: 70%;
+   padding: 40px 60px;
+   margin: 20px auto;
+   background-color: #ffffff;
+
+   .amt-bal {
+     font-size: 15px;
+     font-weight: 500;
+   }
+
+   .form {
+     margin-top: 30px;
+     border-radius: 2px;
+     padding: 20px 0;
+
+     .datepicker {
+       width: 100% !important;
+     }
+   }
+ }
+}
+
+@media screen and (max-width: 768px) {
+  .app-form {
+    #navigation-menu {
+      li {
+        a {
+          font-size: 12px;
+        }
+      }
+    }
+    .form-content {
+      width: 100%;
+      padding: 20px 30px;
+
+    }
+  }
+}

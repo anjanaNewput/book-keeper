@@ -1,0 +1,12 @@
+<entry-form :category="category" v-on:check="check">
+  <div slot="dropdown">
+    <label class="col-md-4 col-xs-12">Cash Withdrawal Bank:</label>
+    <div class="input-group col-md-8 col-xs-12">
+      <basic-select :options="options" name="category" :selected-option="category" placeholder="select item" @select="onSelect" v-validate="'required'" v-model="category.text"></basic-select>
+      <span v-show="errors.has('category')" class="error-text">{{ errors.first('category')}}</span>
+    </div>
+  </div>
+  <div slot="for">
+    <label class="col-md-4 col-xs-12">Withdrawal For:</label>
+  </div>
+</entry-form>

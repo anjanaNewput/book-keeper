@@ -1,0 +1,18 @@
+<vue-good-table ref="vueTable"
+  :columns="columns"
+  :rows="rowContent"
+  :pagination-options="{
+    enabled: true,
+    perPage: 5,
+  }"
+  styleClass="vgt-table bordered">
+  <template slot="table-row" slot-scope="props">
+    <span v-if="props.column.field === 'action'">
+      <i class="fa fa-edit" @click="editRow"></i>
+      <i class="fa fa-trash" @click="deleteRow"></i>
+    </span>
+    <span v-else>
+      {{props.formattedRow[props.column.field]}}
+    </span>
+  </template>
+</vue-good-table>

@@ -4,6 +4,7 @@ export default {
   data () {
     return {
       viaEmail: false,
+      show: false,
       password: '',
       mail: '',
       mob: '',
@@ -60,7 +61,7 @@ export default {
       this.$localStorage.set('email', email)
       this.$localStorage.set('userLoggedIn', true)
       this.$store.commit('checkUser', true)
-      this.$router.push('/dashboard')
+      this.$router.push('/plan')
     },
     loginViaEmail () {
       this.viaEmail = !this.viaEmail
