@@ -8,6 +8,7 @@ body {
   font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 .page {
+  background: $dark-offwhite-color;
   min-height: 500px;
 }
 
@@ -19,6 +20,12 @@ body {
 
   .header-cont {
     min-height: 70px;
+
+    .navbar-header {
+      .navbar-brand {
+        padding: 28px 15px;
+      }
+    }
 
     div, ul, a {
       min-height: 70px;
@@ -68,11 +75,9 @@ body {
       }
     }
   }
-  .active {
-    a {
+  li.router-link-active.router-link-exact-active {
       background-color: transparent;
       color: $theme-color;
-    }
   }
 
   .logo {

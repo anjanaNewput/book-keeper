@@ -1,4 +1,4 @@
-import AppForm from '../Common/AppForm.vue'
+import AppForm from '../Common/AppForm/AppForm.vue'
 
 export default {
   data () {

@@ -1,6 +1,7 @@
-import AppForm from '../Common/AppForm.vue'
+import AppForm from '../Common/AppForm/AppForm.vue'
 
 export default {
+
   data () {
     return {}
   },
@@ -8,6 +9,6 @@ export default {
 
   },
   components: {
-    AppForm
+    'app-form': AppForm
   }
 }

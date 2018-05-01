@@ -1,0 +1,16 @@
+<div class="credit-sale">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-8 col-sm-offset-2">
+        <app-table v-if="tableData.length>0" :rowContent="tableData" :columns="columns"></app-table>
+        <div class="btn-wrapper text-center">
+          <button type="button" name="button" class="btn btn-primary" v-if="tableData.length>0" @click="addMoreDebitor">Add More</button>
+          <div class="" v-else>
+            <span>No debitors added yet. </span>
+            <button type="button" name="button" class="btn btn-primary" @click="addMoreDebitor">Add Debitor</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
