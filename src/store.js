@@ -6,7 +6,9 @@ Vue.use(Vuex)
 const store = new Vuex.Store({
   state: {
     email: '',
-    isUserLogged: false
+    isUserLogged: false,
+    creditSaleData: [],
+    index: 0
   },
   mutations: {
     setEmail (state, data) {
@@ -14,6 +16,14 @@ const store = new Vuex.Store({
     },
     checkUser (state, data) {
       state.isUserLogged = data
+    },
+    getCreditSaleData (state, payload) {
+      state.creditSaleData.push({
+        'id': ++state.index,
+        'name': payload.name,
+        'mob': payload.mob,
+        'gst': payload.gst
+      })
     }
   },
   actions: {

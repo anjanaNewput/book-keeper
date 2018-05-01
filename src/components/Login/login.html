@@ -1,9 +1,9 @@
 <div class="login-page">
   <div class="container-fluid">
     <div class="row">
-      <div class="col-sm-8 col-sm-offset-2 col-md-4 col-md-offset-4">
-        <div class="wrap-login">
-          <div class="wrap-login-title">
+      <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
+        <div class="wrap-login form-wrapper">
+          <div class="wrap-login-title form-title">
             Login
           </div>
           <form v-show="viaEmail" class="login-form" data-vv-scope="form-2" @submit.prevent="validateForm('form-2')">
@@ -24,14 +24,9 @@
               >
               <span v-show="errors.has('form-2.password')" class="error-text">{{ errors.first('form-2.password')}}</span>
             </div>
+
             <div class="row btn-wrapper">
-              <div class="col-sm-8 col-xs-7">
-                <a @click="loginViaEmail">Login using mobile no.</a>
-              </div>
-              <div class="col-sm-4 hidden-xs">
-                <button class="btn btn-primary login-form-btn pull-right">Login</button>
-              </div>
-              <div class="col-sm-4 col-xs-5 visible-xs">
+              <div class="col-sm-12 text-center">
                 <button class="btn btn-primary login-form-btn">Login</button>
               </div>
             </div>
@@ -45,24 +40,22 @@
               <span v-show="errors.has('form-1.mob')" class="error-text">{{ errors.first('form-1.mob')}}</span>
             </div>
             <div class="row btn-wrapper">
-              <div class="col-sm-8 col-xs-7">
-                <a @click="loginViaEmail">Login using email</a>
-              </div>
-              <div class="col-sm-4 hidden-xs">
-                <button class="btn btn-primary login-form-btn pull-right">Get OTP</button>
-              </div>
-              <div class="col-sm-4 col-xs-5 visible-xs">
+              <div class="col-sm-12 text-center">
                 <button class="btn btn-primary login-form-btn">Get OTP</button>
               </div>
             </div>
           </form>
           <div class="container-fluid other-links-wrapper">
             <div class="row">
-              <div class="col-sm-6 text-center">
-                <router-link to='/sign-up'>New user? Sign up</router-link>
+              <div class="col-sm-4">
+                <a @click="loginViaEmail" v-if="viaEmail">Login Using Mobile No.</a>
+                <a @click="loginViaEmail" v-else>Login Using Email</a>
               </div>
-              <div class="col-sm-6 text-center">
-                <router-link to='/sign-up'>Forgot password?</router-link>
+              <div class="col-sm-4">
+                <router-link to='/sign-up'>New User? Sign Up</router-link>
+              </div>
+              <div class="col-sm-4">
+                <router-link to='/sign-up'>Forgot Password?</router-link>
               </div>
             </div>
           </div>

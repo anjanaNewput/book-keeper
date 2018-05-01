@@ -93,7 +93,7 @@ export default {
       item: {
         value: '',
         text: ''
-      },
+      }
     }
   },
   methods: {
@@ -102,7 +102,7 @@ export default {
       this.$router.push({name: page})
     },
     openCalendar (el) {
-      $('#datetimepicker').datepicker()
+      // $('#datetimepicker').datepicker()
     },
     onSelect (item) {
       this.item = item
@@ -113,7 +113,7 @@ export default {
     selectOption () {
       this.item = this.options[0]
     },
-    addEntry (){
+    addEntry () {
       console.log(this.payType)
     }
   },

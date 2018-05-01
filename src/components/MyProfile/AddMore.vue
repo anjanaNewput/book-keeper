@@ -1,0 +1,81 @@
+<template>
+<div class="add-more">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+        <div class="form-wrapper" slot="body">
+          <div class="form-title">
+            Add Creditor/Debitor
+          </div>
+          <form @submit.prevent="validateForm">
+            <div class="form-group">
+              <label class="control-label" :class="{'error-text': errors.has('name')}">Name</label>
+              <input type="text" name="name" class="form-control" v-model="form.name" v-validate="'required'" :class="{'has-danger': errors.has('name')}">
+              <span v-show="errors.has('name')"
+                    class="error-text">
+                    {{ errors.first('name')}}
+              </span>
+            </div>
+            <div class="form-group">
+              <label class="control-label" :class="{'error-text': errors.has('mob')}">Mobile No.</label>
+              <input type="text" name="mob" class="form-control" v-model="form.mob" v-validate="'required'" :class="{'has-danger': errors.has('mob')}">
+              <span v-show="errors.has('mob')"
+                    class="error-text">
+                    {{ errors.first('mob')}}
+              </span>
+            </div>
+            <div class="form-group">
+              <label class="control-label" :class="{'error-text': errors.has('gst')}">GST No.</label>
+              <input type="text" name="gst" class="form-control" v-model="form.gst" v-validate="'required'" :class="{'has-danger': errors.has('gst')}">
+              <span v-show="errors.has('gst')"
+                    class="error-text">
+                    {{ errors.first('gst')}}
+              </span>
+            </div>
+            <div class="btn-wrapper text-center">
+              <button class="btn btn-primary">Add</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</template>
+<script>
+export default {
+  name: 'AddMore',
+  data () {
+    return {
+      form: {
+        'name': '',
+        'mob': '',
+        'gst': ''
+      },
+      dictionary: {
+        attributes: {
+          'name': 'Name',
+          'mob': 'Mobile',
+          'gst': 'GST No.'
+        }
+      }
+    }
+  },
+  mounted () {
+    this.$validator.localize('en', this.dictionary)
+  },
+  methods: {
+    validateForm () {
+      this.$validator.validateAll().then(result => {
+        if (result) {
+          this.$store.commit('getCreditSaleData', this.form)
+          this.$router.go(-1)
+        }
+      })
+    }
+  }
+}
+</script>
+<style lang="scss">
+@import '../../assets/scss/form.scss';
+</style>
