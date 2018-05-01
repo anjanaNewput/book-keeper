@@ -1,0 +1,22 @@
+@import './variables.scss';
+
+.credit-sale {
+  background-color: $dark-offwhite-color;
+  .table {
+    background-color: $white-color;
+    margin-top: 30px;
+    padding: 10px;
+    caption {
+      background-color: inherit;
+      text-align: center;
+      font-size: 17px;
+    }
+  }
+  .btn-wrapper {
+    margin-top: 20px;
+  }
+  .modal-title {
+    font-size: 25px;
+    font-weight: 400;
+  }
+}

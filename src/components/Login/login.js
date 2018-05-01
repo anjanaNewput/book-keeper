@@ -4,6 +4,7 @@ export default {
   data () {
     return {
       viaEmail: false,
+      show: false,
       password: '',
       mail: '',
       mob: '',

@@ -1,0 +1,73 @@
+@import './variables.scss';
+
+.form-wrapper {
+  background-color: $white-color;
+  border-radius: 5px;
+  margin: 30px 15px;
+  padding: 15px 15px 35px;
+
+  .form-title {
+    color: $theme-color;
+    font-size: 27px;
+    font-weight: 400;
+    padding: 10px;
+    text-align: center;
+  }
+  form {
+    margin-bottom: 15px;
+
+    .form-group {
+      .control-label {
+        font-weight: 400;
+      }
+
+      .error-text {
+        color: $red-color;
+        font-weight: 400;
+        padding-top: 10px;
+      }
+    }
+    .btn-wrapper {
+      padding-top: 20px;
+      .btn {
+        padding: 8px 20px;
+      }
+    }
+  }
+  .form-control.has-danger, .has-danger {
+    border: 2px solid $red-color;
+  }
+  a:hover {
+    cursor: pointer;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .form-wrapper {
+    margin: 15px 0;
+    form {
+      margin: 15px 0;
+      padding: 15px 0;
+      .btn {
+        border-radius: 3px;
+        font-size: 17px;
+        width: 100%;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 414px) and (min-width: 376px) {
+  .form-wrapper {
+    margin: 15px 0;
+    form {
+      margin: 15px 0;
+      padding: 15px 0;
+      .btn {
+        border-radius: 3px;
+        font-size: 17px;
+        width: 100%;
+      }
+    }
+  }
+}

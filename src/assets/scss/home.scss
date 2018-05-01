@@ -53,52 +53,23 @@
 }
 // ========== login-page and signup-page ==========
 .login-page, .signup-page {
-  background-color: $dark-offwhite-color;
-  min-height: 500px;
   button {
     border: none;
   	outline: none !important;
   }
 
   .wrap-login {
-  	background-color: $white-color;
-    border-radius: 5px;
-    margin: 15px;
-    padding: 15px;
-
-    .wrap-login-title {
-      color: $theme-color;
-  		font-size: 27px;
-  		font-weight: 400;
-      padding: 10px;
-      text-align: center;
-    }
 
     .login-form, .signin-form {
       border: 1px solid $light-gray-color;
       border-radius: 5px;
       padding: 15px 20px;
       margin-bottom: 15px;
-
-        .form-group {
-          .control-label {
-            color: $theme-color;
-            font-weight: 400;
-          }
-          .error-text {
-            color: $red-color;
-            font-weight: 400;
-            padding-top: 10px;
-          }
-        }
-        .btn-wrapper {
-          padding-top: 15px;
-        }
+      }
+      .signin-form {
+        border: none;
       }
 
-      .has-danger {
-    	  border: 2px solid $red-color;
-    	}
       .other-links-wrapper {
         border: 1px solid $light-gray-color;
         border-radius: 5px;
@@ -114,12 +85,47 @@
 @media screen and (max-width: 375px) {
   .login-page, .signup-page {
     min-height: 600px;
+
+    .wrap-login {
+      margin: 15px 0;
+      .signin-form {
+        margin: 15px 0;
+        padding: 15px 0;
+        .btn {
+          border-radius: 3px;
+          width: 100%;
+        }
+      }
+      .login-form {
+        .btn {
+          border-radius: 3px;
+          width: 100%;
+        }
+      }
+    }
   }
 }
 
 @media screen and (max-width: 414px) and (min-width: 376px) {
   .login-page, .signup-page {
     min-height: 550px;
+    .wrap-login {
+      margin: 15px 0;
+      .signin-form {
+        margin: 15px 0;
+        padding: 15px 0;
+        .btn {
+          border-radius: 3px;
+          width: 100%;
+        }
+      }
+      .login-form {
+        .btn {
+          border-radius: 3px;
+          width: 100%;
+        }
+      }
+    }
   }
 }
 
@@ -147,5 +153,4 @@
       margin: 0;
     }
   }
-
 }
