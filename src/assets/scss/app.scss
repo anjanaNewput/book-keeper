@@ -7,6 +7,10 @@
 body {
   font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 }
+.page {
+  background: $dark-offwhite-color;
+  min-height: 500px;
+}
 
 #header {
   background-color: $white-color;
@@ -17,8 +21,25 @@ body {
   .header-cont {
     min-height: 70px;
 
+    .navbar-header {
+      .navbar-brand {
+        padding: 28px 15px;
+      }
+    }
+
     div, ul, a {
       min-height: 70px;
+    }
+    .dropdown {
+      ul {
+        min-height: 20px;
+        li {
+          height: 40px;
+        }
+        a{
+          padding: 15px;
+        }
+      }
     }
     .navbar-header {
       .navbar-toggle {
@@ -41,21 +62,24 @@ body {
       }
     }
   }
-
-  a {
-    &:hover{
-      color: $theme-color;
+  .nav {
+    li {
+      a {
+        &:hover, &:focus{
+          color: #339FD8;
+        }
+        font-size: 15px;
+        font-weight: 500;
+        padding: 28px 15px;
+        background-color: transparent;
+      }
     }
-    font-size: 15px;
-    font-weight: 500;
-    padding: 28px 15px;
   }
-  .active {
-    a {
+  li.router-link-active.router-link-exact-active {
       background-color: transparent;
       color: $theme-color;
-    }
   }
+
   .logo {
     height: 30px;
     width: 210px;

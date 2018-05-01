@@ -1,0 +1,60 @@
+.dashboard, .income, .expenses {
+
+  #navigation-menu {
+    margin-left: 0;
+    background-color: #339FD8;
+    color: #fff;
+    text-align: center;
+    li {
+      height: 100%;
+      padding: 10px;
+      width: 16%;
+
+      a {
+        color: #fff;
+        font-size: 20px;
+        &:hover {
+          text-decoration: none;
+        }
+      }
+    }
+    .active {
+        border-bottom: 5px solid #f1f1f1;
+        color:#000;
+   }
+ }
+
+ .form-content {
+   width: 60%;
+   margin: 20px auto;
+
+   .view-toggle-btn {
+     width: 150px;
+     border: 2px solid #339FD8;
+     color: #339FD8;
+   }
+
+   .expenses-form {
+     margin-top: 30px;
+   }
+ }
+}
+
+@media screen and (max-width: 768px) {
+  .dashboard, .income, .expenses {
+    #navigation-menu {
+      li {
+        a {
+          font-size: 12px;
+        }
+      }
+    }
+  }
+  .expenses {
+    .form-content {
+      .view-toggle-btn {
+        width: 75px;
+      }
+    }
+  }
+}
