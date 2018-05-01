@@ -1,8 +1,8 @@
-.dashboard, .income, .expenses {
-
+@import './variables.scss';
+.app-form {
   #navigation-menu {
     margin-left: 0;
-    background-color: #339FD8;
+    background-color: $theme-color;
     color: #fff;
     text-align: center;
     li {
@@ -19,29 +19,36 @@
       }
     }
     .active {
-        border-bottom: 5px solid #f1f1f1;
+        border-bottom: 5px solid $dark-offwhite-color;
         color:#000;
    }
  }
 
  .form-content {
-   width: 60%;
+   width: 70%;
+   padding: 40px 60px;
    margin: 20px auto;
+   background-color: #ffffff;
 
-   .view-toggle-btn {
-     width: 150px;
-     border: 2px solid #339FD8;
-     color: #339FD8;
+   .amt-bal {
+     font-size: 15px;
+     font-weight: 500;
    }
 
-   .expenses-form {
+   .form {
      margin-top: 30px;
+     border-radius: 2px;
+     padding: 20px 0;
+
+     .datepicker {
+       width: 100% !important;
+     }
    }
  }
 }
 
 @media screen and (max-width: 768px) {
-  .dashboard, .income, .expenses {
+  .app-form {
     #navigation-menu {
       li {
         a {
@@ -49,12 +56,10 @@
         }
       }
     }
-  }
-  .expenses {
     .form-content {
-      .view-toggle-btn {
-        width: 75px;
-      }
+      width: 100%;
+      padding: 20px 30px;
+
     }
   }
 }

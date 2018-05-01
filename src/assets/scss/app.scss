@@ -7,11 +7,29 @@
 body {
   font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 }
+
+.form-group {
+  min-height: 35px;
+}
+
 .page {
   background: $dark-offwhite-color;
   min-height: 500px;
+  background-color: #f1f1f1;
+  padding-bottom: 30px;
+
+  .app-btn {
+    background-color: $theme-color;
+    color: $white-color;
+    width: 200px;
+  }
 }
 
+.error-text {
+  color: $red-color;
+  font-weight: 400;
+  padding-top: 10px;
+}
 #header {
   background-color: $white-color;
   border: none;
@@ -90,4 +108,12 @@ body {
   color: $theme-color;
   padding: 30px;
   text-align: center;
+}
+
+@media screen and (max-width: 768px) {
+  .page {
+    .app-btn {
+      width: 100%;
+    }
+  }
 }

@@ -1,11 +1,15 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from '@/components/Home/Home.vue'
+
+import Home from '@/components/Pages/Home/Home.vue'
 import SignUp from '@/components/SignUp/SignUp.vue'
 import Login from '@/components/Login/Login.vue'
 import Dashboard from '@/components/Dashboard/Dashborad.vue'
-import Expenses from '@/components/Dashboard/Expenses.vue'
-import Income from '@/components/Dashboard/Income.vue'
+import Expenses from '@/components/Dashboard/Expenses/Expenses.vue'
+import Income from '@/components/Dashboard/Income/Income.vue'
+import Withdraw from '@/components/Dashboard/Withdraw/Withdraw.vue'
+import Deposit from '@/components/Dashboard/Deposit/Deposit.vue'
+import PlanAndPrice from '@/components/Pages/PlanAndPricing/Plan.vue'
 import CompanyInfo from '@/components/MyProfile/CompanyInfo/CompanyInfo.vue'
 import Creditors from '@/components/MyProfile/Creditors/Creditors.vue'
 import Debitors from '@/components/MyProfile/Debitors/Debitors.vue'
@@ -45,23 +49,41 @@ export default new Router({
       component: Dashboard,
       meta: {
         authRequired: true
-      }
-    },
-    {
-      path: '/income',
-      name: 'Income',
-      component: Income,
-      meta: {
-        authRequired: true
-      }
-    },
-    {
-      path: '/expanses',
-      name: 'Expenses',
-      component: Expenses,
-      meta: {
-        authRequired: true
-      }
+      },
+      children: [
+        {
+          path: 'expanses',
+          name: 'Expenses',
+          component: Expenses,
+          meta: {
+            authRequired: true
+          }
+        },
+        {
+          path: 'withdrawal',
+          name: 'Withdrawal',
+          component: Withdraw,
+          meta: {
+            authRequired: true
+          }
+        },
+        {
+          path: 'deposit',
+          name: 'Deposit',
+          component: Deposit,
+          meta: {
+            authRequired: true
+          }
+        },
+        {
+          path: 'income',
+          name: 'Income',
+          component: Income,
+          meta: {
+            authRequired: true
+          }
+        }
+      ]
     },
     {
       path: '/setup-company',
@@ -94,6 +116,11 @@ export default new Router({
       meta: {
         authRequired: true
       }
+    },
+    {
+      path: '/plan',
+      name: 'Plan',
+      component: PlanAndPrice
     }
   ],
   mode: 'history'

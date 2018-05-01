@@ -1,0 +1,84 @@
+@import './variables.scss';
+
+.login-page, .signup-page {
+  min-height: 500px;
+  button {
+    border: none;
+  	outline: none !important;
+  }
+
+  .wrap-login {
+  	background-color: $white-color;
+    border-radius: 5px;
+    margin: 15px;
+    padding: 15px;
+
+    .wrap-login-title {
+      color: $theme-color;
+  		font-size: 27px;
+  		font-weight: 400;
+      padding: 10px;
+      text-align: center;
+    }
+
+    .login-form, .signin-form {
+      border: 1px solid $light-gray-color;
+      border-radius: 5px;
+      padding: 15px 20px;
+      margin-bottom: 15px;
+
+        .form-group {
+          .control-label {
+            color: $theme-color;
+            font-weight: 400;
+          }
+        }
+        .btn-wrapper {
+          padding-top: 15px;
+        }
+      }
+
+      .has-danger {
+    	  border: 2px solid $red-color;
+    	}
+      .other-links-wrapper {
+        border: 1px solid $light-gray-color;
+        border-radius: 5px;
+        padding: 15px 20px;
+        text-align: center;
+      }
+      a:hover {
+        color: $theme-color;
+      }
+    }
+}
+
+@media screen and (max-width: 375px) {
+  .login-page, .signup-page {
+    min-height: 600px;
+  }
+}
+
+@media screen and (max-width: 414px) and (min-width: 376px) {
+  .login-page, .signup-page {
+    min-height: 550px;
+  }
+}
+
+@media screen and (max-width: 768px) and (min-width: 415px) {
+  .login-page, .signup-page {
+    min-height: 828px;
+    .wrap-login {
+      margin-top: 100px;
+    }
+  }
+}
+
+@media screen and (max-width: 1024px) and (min-width: 769px) {
+  .login-page, .signup-page {
+    min-height: 1140px;
+    .wrap-login {
+      margin-top: 150px;
+    }
+  }
+}

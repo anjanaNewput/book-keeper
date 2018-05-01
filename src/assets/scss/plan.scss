@@ -1,0 +1,37 @@
+@import './variables.scss';
+
+.price-plan {
+  .content {
+    padding: 30px 200px;
+
+    .plan-block {
+      margin-top: 30px;
+      .box {
+          background-color: $white-color;
+          border-radius: 10px;
+          min-height: 300px;
+
+          .head {
+            background-color: $theme-color;
+            color: $white-color;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            min-height: 100px;
+            text-align: center;
+            padding: 25px;
+            font-size: 30px;
+
+            .price {
+              font-size:20px;
+            }
+          }
+          .body {
+            padding: 20px;
+          }
+          .foot {
+            padding: 20px;
+          }
+      }
+    }
+  }
+}

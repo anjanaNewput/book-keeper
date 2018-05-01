@@ -1,5 +1,4 @@
-import AppForm from '../Common/AppForm/AppForm.vue'
-import Datepicker from 'vuejs-datepicker'
+import EntryForm from '../EntryForm/EntryForm.vue'
 import { BasicSelect } from 'vue-search-select'
 
 export default {
@@ -17,34 +16,37 @@ export default {
         { value: '9', text: 'Insurance' },
         { value: '10', text: 'Tea & coffee'}
       ],
-      searchText: '', // If value is falsy, reset searchText & searchItem
-      item: {
+      searchText: '',
+      category: {
         value: '',
         text: ''
       },
-      payType: 0
+      toText: ''
     }
   },
   components: {
-    AppForm,
-    Datepicker,
+    EntryForm,
     BasicSelect
   },
   methods: {
-    openCalendar (el) {
-      $('#datetimepicker').datepicker();
-    },
     onSelect (item) {
-      this.item = item
+      this.category = item
     },
     reset () {
-      this.item = {}
+      this.category = {}
     },
     selectOption () {
-      this.item = this.options[0]
+      this.category = this.options[0]
     },
-    addEntry (){
-      console.log(this.payType)
+    check () {
+      this.$validator.validateAll().then((result) => {
+        if (result) {
+          console.log('hiiiii')
+        } else {
+          console.log(result);
+          //  console.log('hiiiii')
+        }
+      })
     }
   }
 }
