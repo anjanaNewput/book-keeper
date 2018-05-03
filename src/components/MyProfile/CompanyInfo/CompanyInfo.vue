@@ -1,6 +1,5 @@
 <template src="./companyInfo.html"></template>
 <script src="./companyInfo.js"></script>
-<style lang="scss">
-@import '../../../assets/scss/form.scss';
+<style lang="scss" scoped>
 @import '../../../assets/scss/companyInfo.scss'
 </style>

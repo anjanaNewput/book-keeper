@@ -1,0 +1,29 @@
+<div class="container-fluid">
+  <div class="row" v-if="isShow">
+    <div class="col-sm-8 col-sm-offset-2 wrapper">
+      <div class="wrapper-title">
+        <span>Report</span>
+      </div>
+      <div class="links-wrapper">
+        <a @click="changeRoute('ProfitAndLoss')">P&L (Profit & Loss)</a>
+        <a @click="changeRoute('BalanceSheet')">Balance Sheet</a>
+        <a @click="changeRoute('Account')">Balance Sheet</a>
+        <!-- <router-link to="/profit-and-loss">P&L (Profit & Loss)</router-link> -->
+        <!-- <router-link to="/balance-sheet">Balance Sheet</router-link> -->
+        <!-- <router-link to="/account">Account</router-link> -->
+      </div>
+    </div>
+  </div>
+  <div class="row" v-else>
+    <div class="col-sm-12 wrapper">
+      <div class="col-sm-4 text-left">
+        <button type="button" name="button" class="btn btn-primary" @click="toggleShow">Back</button>
+      </div>
+      <div class="col-sm-8 text-center">
+        <h4>{{title}}</h4>
+      </div>
+    </div>
+    <router-view/>
+  </div>
+
+</div>

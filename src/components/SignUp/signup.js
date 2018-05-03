@@ -18,9 +18,21 @@ export default {
     }
   },
   mounted () {
+    Validator.extend('isNumeric', {
+      getMessage: (field) => {
+        return 'Should be numeric value.'
+      },
+      validate: (value) => {
+        if(!/^[0-9]/.test(value)){
+          return false;
+        } else {
+           return true;
+        }
+      }
+    });
     Validator.extend('email', {
       getMessage: (field) => {
-        return 'Enter a valid email address'
+        return 'Enter a valid email address.'
       },
       validate: (value) => {
         return (/^[a-zA-Z0-9._-]+@[a-zA-Z]+\.com$/i.test(value))

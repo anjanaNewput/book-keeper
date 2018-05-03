@@ -16,6 +16,10 @@ import Debitors from '@/components/MyProfile/Debitors/Debitors.vue'
 import AddMore from '@/components/MyProfile/AddMore/AddMore.vue'
 import SaleEntry from '@/components/Dashboard/SaleEntry/SaleEntry.vue'
 import PurchaseEntry from '@/components/Dashboard/PurchaseEntry/PurchaseEntry.vue'
+import Reports from '@/components/Reports/Reports.vue'
+import ProfitAndLoss from '@/components/Reports/P&L/ProfitAndLoss.vue'
+import BalanceSheet from '@/components/Reports/BalanceSheet/BalanceSheet.vue'
+import Account from '@/components/Reports/Account/Account.vue'
 
 Vue.use(Router)
 
@@ -117,7 +121,17 @@ export default new Router({
       component: Creditors,
       meta: {
         authRequired: true
-      }
+      },
+      children: [
+        {
+          path: 'add-more-creditor',
+          name: 'AddMoreCreditor',
+          component: AddMore,
+          meta: {
+            authRequired: true
+          }
+        }
+      ]
     },
     {
       path: '/my-debitors',
@@ -125,15 +139,59 @@ export default new Router({
       component: Debitors,
       meta: {
         authRequired: true
-      }
+      },
+      children: [
+        {
+          path: 'add-more-debitor',
+          name: 'AddMoreDebitor',
+          component: AddMore,
+          meta: {
+            authRequired: true
+          }
+        }
+      ]
     },
     {
-      path: '/add-more',
+      path: '/add-more/:type',
       name: 'AddMore',
       component: AddMore,
       meta: {
         authRequired: true
       }
+    },
+    {
+      path: '/reports',
+      name: 'Reports',
+      component: Reports,
+      meta: {
+        authRequired: true
+      },
+      children: [
+        {
+          path: 'profit-and-loss',
+          name: 'ProfitAndLoss',
+          component: ProfitAndLoss,
+          meta: {
+            authRequired: true
+          }
+        },
+        {
+          path: 'balance-sheet',
+          name: 'BalanceSheet',
+          component: BalanceSheet,
+          meta: {
+            authRequired: true
+          }
+        },
+        {
+          path: 'account',
+          name: 'Account',
+          component: Account,
+          meta: {
+            authRequired: true
+          }
+        }
+      ]
     },
     {
       path: '/plan',

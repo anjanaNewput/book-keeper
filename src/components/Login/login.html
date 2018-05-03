@@ -8,7 +8,7 @@
           </div>
           <form v-show="viaEmail" class="login-form" data-vv-scope="form-2" @submit.prevent="validateForm('form-2')">
             <div class="form-group">
-              <label for="email" class="control-label" :class="{'error-text': errors.has('form-2.email')}">Email</label>
+              <label for="email" class="control-label">Email</label>
               <input type="text" class="form-control" id="email" name="email" placeholder="Email" :class="{'has-danger': errors.has('form-2.email')}"
               v-model="mail"
               v-validate="'required|email'"
@@ -17,7 +17,7 @@
             </div>
 
             <div class="form-group">
-              <label for="password" class="control-label" :class="{'error-text': errors.has('form-2.password')}">Password</label>
+              <label for="password" class="control-label">Password</label>
               <input type="password" class="form-control" id="password" name="password" placeholder="Password" :class="{'has-danger': errors.has('form-2.password')}"
               v-model="password"
               v-validate="'required'"
@@ -33,7 +33,7 @@
           </form>
           <form v-show="!viaEmail" class="login-form" @submit.prevent="validateForm('form-1')" data-vv-scope="form-1">
             <div class="form-group">
-              <label for="mob" class="control-label" :class="{'error-text': errors.has('form-1.mob')}">Mobile</label>
+              <label for="mob" class="control-label">Mobile</label>
               <input class="form-control" type="tel" name="mob" id="mob" placeholder="Mobile no." v-validate="'required|max:10|min:10'" :class="{'has-danger': errors.has('form-1.mob')}"
               v-model="mob"
               >

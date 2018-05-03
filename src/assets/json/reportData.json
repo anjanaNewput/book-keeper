@@ -1,0 +1,45 @@
+{
+  "reportData": [
+    {
+      "startDate": "",
+      "endDate": "" ,
+      "income": [
+        {
+          "id": 1,
+          "from": "Sale",
+          "amount": 1000.01
+        },
+        {
+          "id": 2,
+          "from": "Interest",
+          "amount": 1100.022
+        },
+        {
+          "id": 3,
+          "from": "Discount",
+          "amount": 1010
+        }
+      ],
+      "expense": [
+        {
+          "id": 1,
+          "for": "Rent",
+          "amount": 1000
+        },
+        {
+          "id": 2,
+          "for": "Travelling",
+          "amount": 1800
+        },
+        {
+          "id": 3,
+          "for": "Fee",
+          "amount": 50010
+        }
+      ],
+      "totalIncome": 0,
+      "totalExpense": 0,
+      "resultAmount": 0
+    }
+  ]
+}

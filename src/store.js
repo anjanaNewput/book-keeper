@@ -1,15 +1,20 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+
 Vue.use(Vuex)
 
 // @flow
 const store = new Vuex.Store({
   state: {
+    index: 0,
+    paymentDone: false,
     email: '',
     isUserLogged: false,
-    creditSaleData: [],
-    index: 0,
-    paymentDone: false
+    creditorsData: [],
+    debitorsData: [],
+    creditorId: 0,
+    debitorId: 0,
+    reportData: {}
   },
   mutations: {
     setEmail (state, data) {
@@ -18,9 +23,9 @@ const store = new Vuex.Store({
     checkUser (state, data) {
       state.isUserLogged = data
     },
-    getCreditSaleData (state, payload) {
-      state.creditSaleData.push({
-        'id': ++state.index,
+    setCreditorData (state, payload) {
+      state.creditorsData.push({
+        'id': ++state.creditorId,
         'name': payload.name,
         'mob': payload.mob,
         'gst': payload.gst
@@ -28,6 +33,17 @@ const store = new Vuex.Store({
     },
     paymentDone (state, data) {
       state.paymentDone = data
+    },
+    setDebitorData (state, payload) {
+      state.debitorsData.push({
+        'id': ++state.debitorId,
+        'name': payload.name,
+        'mob': payload.mob,
+        'gst': payload.gst
+      })
+    },
+    setReportData (state, payload) {
+      state.reportData = payload.reportData[0]
     }
   },
   actions: {
