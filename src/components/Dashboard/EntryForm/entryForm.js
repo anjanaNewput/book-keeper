@@ -1,11 +1,10 @@
 import DatePicker from 'vue2-datepicker'
-import { BasicSelect } from 'vue-search-select'
 
 export default {
   props: ['category', 'toText'],
   data () {
     return {
-      payType: 0,
+      payType: 'cash',
       txnDate: null,
       amount: null,
       forReasonText: '',
@@ -38,7 +37,6 @@ export default {
     }
   },
   components: {
-    DatePicker,
-    BasicSelect
+    DatePicker
   }
 }

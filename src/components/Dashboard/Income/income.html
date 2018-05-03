@@ -2,15 +2,15 @@
   <div slot="dropdown">
     <label class="col-md-4 col-xs-12">Income:</label>
     <div class="input-group col-md-8 col-xs-12">
-      <model-select :options="options" name="income" v-model="category.text" v-validate="'required'"></model-select>
-      <span v-show="errors.has('income')" class="error-text">{{ errors.first('income')}}</span>
+      <model-select :options="options" name="income-cat" v-model="category.text" v-validate="'required'" placeholder="Select option"></model-select>
+      <span v-show="errors.has('income-cat')" class="error-text">{{ errors.first('income-cat')}}</span>
     </div>
   </div>
   <div slot="to">
     <div class="form-group">
       <label class="col-md-4 col-xs-12">Received From:</label>
       <div class="input-group col-md-8 col-xs-12">
-        <input type="text" name="to" class="form-control" v-model="toText" v-validate="'required'"/>
+        <input type="text" name="to" class="form-control" v-model="toText" v-validate="'required'" placeholder="Enter the account/name from whom you recieve"/>
         <span v-show="errors.has('to')" class="error-text">{{ errors.first('to')}}</span>
       </div>
     </div>

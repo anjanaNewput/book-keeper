@@ -1,10 +1,10 @@
 <div class="price-plan">
   <div class="content">
-    <h1 class="text-center">Welcome to our price and plan page </h1>
+    <p class="text-center heading">Choose the pricing plan that suits your business. </p>
     <div class="row plan-block">
-      <div class="col-md-4">
+      <div class="col-md-6">
         <div class="box">
-            <div class="head"><div>Free</div><span class="price">$ 0.0 / month</span></div>
+            <div class="head"><div>Basic</div><span class="price">Rs 2000 / year</span></div>
             <div class="body">
               <ul>
                 <li>hi, hello how are you</li>
@@ -17,32 +17,13 @@
               </ul>
             </div>
             <div class="foot text-center">
-              <button class="app-btn btn">Checkout</button>
+              <button class="app-btn btn" @click="payNow">Checkout</button>
             </div>
         </div>
       </div>
-      <div class="col-md-4">
+      <div class="col-md-6">
         <div class="box">
-            <div class="head"><div>Basic</div><span class="price">$ 49.0 / month</span></div>
-            <div class="body">
-              <ul>
-                <li>hi, hello how are you</li>
-                <li>hi, hello how are you</li>
-                <li>hi, hello how are you</li>
-                <li>hi, hello how are you</li>
-                <li>hi, hello how are you</li>
-                <li>hi, hello how are you</li>
-                <li>hi, hello how are you</li>
-              </ul>
-            </div>
-            <div class="foot text-center">
-              <button class="app-btn btn">Checkout</button>
-            </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="box">
-          <div class="head"><div>Advance</div><span class="price">$ 99.0 / month</span></div>
+          <div class="head"><div>Advance</div><span class="price">Rs 4000 / year</span></div>
           <div class="body">
             <ul>
               <li>hi, hello how are you</li>
@@ -55,7 +36,7 @@
             </ul>
           </div>
           <div class="foot text-center">
-            <button class="app-btn btn">Checkout</button>
+            <button class="app-btn btn" @click="payNow">Checkout</button>
           </div>
         </div>
       </div>

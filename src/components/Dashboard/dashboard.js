@@ -2,18 +2,18 @@ export default {
 
   data () {
     return {
-      menus: ['Expenses', 'Income', 'Withdrawal', 'Deposit', 'Sale', 'Purchase']
+      menus: [{name: 'Expenses', display: 'Expenses'}, {name: 'Income', display: 'Income'}, {name: 'Withdrawal', display: 'Cash Withdrawal'}, {name: 'Deposit', display: 'Cash Deposit'}, {name: 'Sale', display: 'Sale'}, {name: 'Purchase', display: 'Purchase'}],
+
     }
   },
   methods: {
     menuClicked (page, index) {
-      this.activeMenu = index
       this.$router.push({name: page})
     }
   },
   computed: {
     activeMenu () {
-      return this.menus.indexOf(this.$route.name)
+      return this.$route.name
     }
   },
   components: {

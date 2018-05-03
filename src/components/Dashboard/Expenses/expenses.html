@@ -2,8 +2,8 @@
   <div slot="dropdown">
     <label class="col-md-4 col-xs-12">Expenses:</label>
     <div class="input-group col-md-8 col-xs-12">
-      <basic-select :options="options" name="category" :selected-option="category" placeholder="select item" @select="onSelect" v-validate="'required'" v-model="category.text"></basic-select>
-      <span v-show="errors.has('category')" class="error-text">{{ errors.first('category')}}</span>
+      <model-select :options="options" name="expense-cat" v-model="category.text" v-validate="'required'" placeholder="Select option"></model-select>
+      <span v-show="errors.has('expense-cat')" class="error-text">{{ errors.first('expense-cat')}}</span>
     </div>
 
   </div>
@@ -11,7 +11,7 @@
     <div class="form-group">
       <label class="col-md-4 col-xs-12">Paid To:</label>
       <div class="input-group col-md-8 col-xs-12">
-        <input type="text" name="to" class="form-control" v-model="toText" v-validate="'required'"/>
+        <input type="text" name="to" class="form-control" v-model="toText" v-validate="'required'" placeholder="Enter the account/name to whom you paid"/>
         <span v-show="errors.has('to')" class="error-text">{{ errors.first('to')}}</span>
       </div>
     </div>
