@@ -8,7 +8,8 @@ const store = new Vuex.Store({
     email: '',
     isUserLogged: false,
     creditSaleData: [],
-    index: 0
+    index: 0,
+    paymentDone: false
   },
   mutations: {
     setEmail (state, data) {
@@ -24,6 +25,9 @@ const store = new Vuex.Store({
         'mob': payload.mob,
         'gst': payload.gst
       })
+    },
+    paymentDone (state, data) {
+      state.paymentDone = data
     }
   },
   actions: {

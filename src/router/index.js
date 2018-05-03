@@ -9,11 +9,13 @@ import Expenses from '@/components/Dashboard/Expenses/Expenses.vue'
 import Income from '@/components/Dashboard/Income/Income.vue'
 import Withdraw from '@/components/Dashboard/Withdraw/Withdraw.vue'
 import Deposit from '@/components/Dashboard/Deposit/Deposit.vue'
-import PlanAndPrice from '@/components/Pages/PlanAndPricing/Plan.vue'
+import PlanAndPrice from '@/components/Pages/PlanAndFeatures/Plan.vue'
 import CompanyInfo from '@/components/MyProfile/CompanyInfo/CompanyInfo.vue'
 import Creditors from '@/components/MyProfile/Creditors/Creditors.vue'
 import Debitors from '@/components/MyProfile/Debitors/Debitors.vue'
 import AddMore from '@/components/MyProfile/AddMore/AddMore.vue'
+import SaleEntry from '@/components/Dashboard/SaleEntry/SaleEntry.vue'
+import PurchaseEntry from '@/components/Dashboard/PurchaseEntry/PurchaseEntry.vue'
 
 Vue.use(Router)
 
@@ -60,7 +62,7 @@ export default new Router({
           }
         },
         {
-          path: 'withdrawal',
+          path: 'cash-withdrawal',
           name: 'Withdrawal',
           component: Withdraw,
           meta: {
@@ -68,7 +70,7 @@ export default new Router({
           }
         },
         {
-          path: 'deposit',
+          path: 'cash-deposit',
           name: 'Deposit',
           component: Deposit,
           meta: {
@@ -79,6 +81,22 @@ export default new Router({
           path: 'income',
           name: 'Income',
           component: Income,
+          meta: {
+            authRequired: true
+          }
+        },
+        {
+          path: 'sale',
+          name: 'Sale',
+          component: SaleEntry,
+          meta: {
+            authRequired: true
+          }
+        },
+        {
+          path: 'purchase',
+          name: 'Purchase',
+          component: PurchaseEntry,
           meta: {
             authRequired: true
           }

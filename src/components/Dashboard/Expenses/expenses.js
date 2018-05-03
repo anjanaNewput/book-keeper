@@ -1,5 +1,5 @@
 import EntryForm from '../EntryForm/EntryForm.vue'
-import { BasicSelect } from 'vue-search-select'
+import { ModelSelect } from 'vue-search-select'
 
 export default {
   data () {
@@ -26,18 +26,9 @@ export default {
   },
   components: {
     EntryForm,
-    BasicSelect
+    ModelSelect
   },
   methods: {
-    onSelect (item) {
-      this.category = item
-    },
-    reset () {
-      this.category = {}
-    },
-    selectOption () {
-      this.category = this.options[0]
-    },
     check () {
       this.$validator.validateAll().then((result) => {
         if (result) {

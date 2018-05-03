@@ -6,8 +6,8 @@
         <div class="btn-wrapper text-center">
           <button type="button" name="button" class="btn btn-primary" v-if="tableData.length>0" @click="addMoreCreditor">Add More</button>
           <div class="" v-else>
-            <span>No creditor added yet. </span>
-            <button type="button" name="button" class="btn btn-primary" @click="addMoreCreditor">Add Creditor</button>
+            <div class="no-data-msg">No creditor added yet. </div>
+            <div><button type="button" name="button" class="btn app-btn" @click="addMoreCreditor">Add Creditor</button></div>
           </div>
         </div>
       </div>
