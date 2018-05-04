@@ -19,8 +19,8 @@ export default {
       category: {
         value: '',
         text: ''
-      }
-
+      },
+      payType: 'bank'
     }
   },
   components: {
@@ -29,7 +29,7 @@ export default {
   },
   methods: {
     check () {
-      this.$validator.validate('category').then((result) => {
+      this.$validator.validate('deposit-cat').then((result) => {
         if (result) {
           console.log('hiiiii')
         } else {

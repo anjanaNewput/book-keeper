@@ -21,7 +21,8 @@ export default {
         value: '',
         text: ''
       },
-      toText: ''
+      toText: '',
+      payType: 'cash'
     }
   },
   components: {

@@ -1,10 +1,9 @@
 import DatePicker from 'vue2-datepicker'
 
 export default {
-  props: ['category', 'toText'],
+  props: ['category', 'toText', 'payType'],
   data () {
     return {
-      payType: 'cash',
       txnDate: null,
       amount: null,
       forReasonText: '',

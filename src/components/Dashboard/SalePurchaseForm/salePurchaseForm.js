@@ -1,5 +1,5 @@
 import DatePicker from 'vue2-datepicker'
-import { ModelSelect } from 'vue-search-select'
+import { BasicSelect } from 'vue-search-select'
 export default {
   data () {
     return {
@@ -18,13 +18,13 @@ export default {
         billNo: null,
         date: new Date()
       },
-      items: [{totAmt: null, gstRate: null, rate: null, quantity: null, category: {text: '', value: ''}}]
+      items: [{totAmt: null, gstRate: null, rate: null, quantity: null, category: {text: '', value: '', gstRate: null}}]
     }
   },
   props: ['title', 'options'],
   components: {
     DatePicker,
-    ModelSelect
+    BasicSelect
   },
   methods: {
     saveData () {
@@ -32,7 +32,16 @@ export default {
       console.log(this.formData)
     },
     addMoreRow () {
-      this.items.push({totAmt: null, gstRate: null, rate: null, quantity: null, category: {text: '', value: ''}})
+      this.items.push({totAmt: null, gstRate: null, rate: null, quantity: null, category: {text: '', value: '', gstRate: null}})
+    },
+    itemSelected (e, i, item) {
+      item.category = e;
+      this.items[i].gstRate = e.gstRate;
+    },
+    calculateAmount (index) {
+      if(this.items[index].rate && this.items[index].quantity && this.items[index].gstRate) {
+        this.items[index].totAmt =  (this.items[index].quantity * this.items[index].rate) + ((this.items[index].quantity * this.items[index].rate) * (this.items[index].gstRate / 100))
+      }
     }
   }
 }

@@ -16,8 +16,8 @@ export default {
       category: {
         value: '',
         text: ''
-      }
-
+      },
+      payType: 'cash'
     }
   },
   components: {
