@@ -25,8 +25,8 @@ export default {
     goBack () {
       this.toggleShow()
     },
-    changeRoute (routeName) {
-      this.$router.push({name: routeName, params:{'title': routeName}})
+    changeRoute (routeName, title) {
+      this.$router.push({name: routeName, params:{'title': title}})
       this.title = routeName
       this.toggleShow()
     }

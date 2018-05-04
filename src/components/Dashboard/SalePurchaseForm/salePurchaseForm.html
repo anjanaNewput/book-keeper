@@ -6,21 +6,21 @@
         <div class="form-group col-md-4">
           <label class="col-md-4 col-xs-12">Bill No:</label>
           <div class="col-md-8 col-xs-12">
-            <input type="text" class="form-control" v-validate="'required'" name="bill-no" placeholder="Enter Bill no" v-model="formData.billNo"/>
+            <input type="text" class="form-control" v-validate="'required'" name="bill-no" placeholder="Enter Bill no" v-model="formData.billNo" :class="{'has-danger': errors.has('bill-no')}"/>
             <span v-show="errors.has('bill-no')" class="error-text">{{ errors.first('bill-no')}}</span>
           </div>
         </div>
         <div class="form-group col-md-4">
           <label class="col-md-4 col-xs-12">Date:</label>
           <div class="col-md-8 col-xs-12">
-            <date-picker class="datepicker" name="date" :first-day-of-week="1" :lang="lang" :format="'dd/MM/yyyy'" v-validate="'required'" v-model="formData.date"></date-picker>
+            <date-picker class="datepicker" name="date" :first-day-of-week="1" :lang="lang" :format="'dd/MM/yyyy'" v-validate="'required'" v-model="formData.date" :class="{'has-danger': errors.has('date')}"></date-picker>
             <span v-show="errors.has('date')" class="error-text">{{ errors.first('date')}}</span>
           </div>
         </div>
         <div class="form-group col-md-4">
           <label class="col-md-4 col-xs-12">GST No:</label>
           <div class="col-md-8 col-xs-12">
-            <input type="text" class="form-control" v-validate="'required'" name="Gst-No" placeholder="GST No" v-model="formData.gstNo"/>
+            <input type="text" class="form-control" v-validate="'required'" name="Gst-No" placeholder="GST No" v-model="formData.gstNo" :class="{'has-danger': errors.has('Gst-No')}"/>
             <span v-show="errors.has('Gst-No')" class="error-text">{{ errors.first('Gst-No')}}</span>
           </div>
         </div>
@@ -29,14 +29,14 @@
         <div class="form-group col-md-4">
           <label class="col-md-4 col-xs-12">Mobile No:</label>
           <div class="col-md-8 col-xs-12">
-            <input type="text" class="form-control" v-validate="'required|numeric|min:10|max:11'" name="mobile" placeholder="Mobile No" v-model="formData.mob"/>
+            <input type="text" class="form-control" v-validate="'required|numeric|min:10|max:11'" name="mobile" placeholder="Mobile No" v-model="formData.mob" :class="{'has-danger': errors.has('mobile')}"/>
             <span v-show="errors.has('mobile')" class="error-text">{{ errors.first('mobile')}}</span>
           </div>
         </div>
         <div class="form-group col-md-4">
           <label class="col-md-4 col-xs-12">Name:</label>
           <div class="col-md-8 col-xs-12">
-            <input type="text" class="form-control" v-validate="'required'" name="name" placeholder="Name" v-model="formData.name"/>
+            <input type="text" class="form-control" v-validate="'required'" name="name" placeholder="Name" v-model="formData.name" :class="{'has-danger': errors.has('name')}"/>
             <span v-show="errors.has('name')" class="error-text">{{ errors.first('name')}}</span>
           </div>
         </div>
@@ -76,7 +76,7 @@
           <label class="col-xs-12">Total Amount</label>
         </div>
       </div>
-      <div class="row item-row" v-for="(item, index) in items" v-bind:key="index">
+      <div class="row item-row" v-for="(item, index) in items" :key="index">
         <div class="form-group col-md-1">
           <label class="col-xs-12 visible-xs visible-sm">Sno</label>
           <div class="col-xs-12">
@@ -86,35 +86,35 @@
         <div class="form-group col-md-3">
           <label class="col-xs-12 visible-xs visible-sm">Goods/Services</label>
           <div class="col-xs-12">
-            <basic-select :options="options" :name="'category-'+index" :selected-option="item.category" v-validate="'required'" placeholder="Select Option" @select="itemSelected($event, index, item)"></basic-select>
-            <span v-show="errors.has('category-'+index)" class="error-text">{{ errors.first('category-'+index)}}</span>
+            <basic-select :options="options" :name="'category_'+index" :class="{'has-danger': errors.has('category_'+index)}" :selected-option="item.category" v-validate="'required'" placeholder="Select Option" @select="itemSelected($event, index, item)"></basic-select>
+            <span v-show="errors.has('category_'+index)" class="error-text">{{ errors.first('category_'+index)}}</span>
           </div>
         </div>
         <div class="form-group col-md-2">
           <label class="col-xs-12 visible-xs visible-sm">Quantity</label>
           <div class="col-xs-12">
-            <input type="text" class="form-control" v-validate="'required|numeric'" :name="'quantity_'+index" v-model="item.quantity" placeholder="Quantity" @blur="calculateAmount(index)"/>
+            <input type="text" class="form-control" v-validate="'required|numeric'" :name="'quantity_'+index" :class="{'has-danger': errors.has('quantity_'+index)}" v-model="item.quantity" placeholder="Quantity" @blur="calculateAmount(index)"/>
             <span v-show="errors.has('quantity_'+index)" class="error-text">{{ errors.first('quantity_'+index)}}</span>
           </div>
         </div>
         <div class="form-group col-md-2">
           <label class="col-xs-12 visible-xs visible-sm">Rate</label>
           <div class="col-xs-12">
-            <input type="text" class="form-control" v-model="item.rate" v-validate="'required|numeric'" name="'rate_'+index" placeholder="Rate" @blur="calculateAmount(index)"/>
+            <input type="text" class="form-control" v-model="item.rate" v-validate="'required|numeric'" :name="'rate_'+index" :class="{'has-danger': errors.has('rate_'+index)}" placeholder="Rate" @blur="calculateAmount(index)"/>
             <span v-show="errors.has('rate_'+index)" class="error-text">{{ errors.first('rate_'+index)}}</span>
           </div>
         </div>
         <div class="form-group col-md-2">
           <label class="col-xs-12 visible-xs visible-sm">Gst Rate</label>
           <div class="col-xs-12">
-            <input type="text" class="form-control" v-validate="'required|decimal'" v-model="item.gstRate" name="'gst_rate_'+index" placeholder="GST Rate"/>
+            <input type="text" class="form-control" v-validate="'required|decimal'" v-model="item.gstRate" :name="'gst_rate_'+index" :class="{'has-danger': errors.has('gst_rate_'+index)}" placeholder="GST Rate"/>
             <span v-show="errors.has('gst_rate_'+index)" class="error-text">{{ errors.first('gst_rate_'+index)}}</span>
           </div>
         </div>
         <div class="form-group col-md-2">
           <label class="col-xs-12 visible-xs visible-sm">Total Amount</label>
           <div class="col-xs-12">
-            <input type="text" class="form-control" v-validate="'required|numeric'" v-model="item.totAmt" name="'total_'+index" placeholder="Total"/>
+            <input type="text" class="form-control" v-validate="'required|numeric'" v-model="item.totAmt" :name="'total_'+index" :class="{'has-danger': errors.has('total_'+index)}" placeholder="Total"/>
             <span v-show="errors.has('total_'+index)" class="error-text">{{ errors.first('total_'+index)}}</span>
           </div>
         </div>

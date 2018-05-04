@@ -7,8 +7,8 @@
     <div>
       <div class="form-group">
         <label class="col-md-4 col-xs-12">Date:</label>
-        <div class="input-group col-md-8 col-xs-12">
-          <date-picker class="datepicker" name="txnDate" v-model="txnDate" :first-day-of-week="1" :lang="lang" :format="'dd/MM/yyyy'" v-validate="'required'"></date-picker>
+        <div class="col-md-8 col-xs-12">
+          <date-picker class="datepicker" name="txnDate" :class="{'has-danger': errors.has('txnDate')}" v-model="txnDate" :first-day-of-week="1" :lang="lang" :format="'dd/MM/yyyy'" v-validate="'required'"></date-picker>
           <div><span v-show="errors.has('txnDate')" class="error-text">{{ errors.first('txnDate')}}</span></div>
         </div>
       </div>
@@ -17,16 +17,16 @@
       </div>
       <div class="form-group">
         <label class="col-md-4 col-xs-12">Amount:</label>
-        <div class="input-group col-md-8 col-xs-12">
-          <input type="text" class="form-control" v-model="amount" v-validate="'required|numeric'" name="amount" placeholder="Amount"/>
+        <div class="col-md-8 col-xs-12">
+          <input type="text" class="form-control" v-model="amount" v-validate="'required|numeric'" name="amount" :class="{'has-danger': errors.has('amount')}" placeholder="Amount"/>
           <span v-show="errors.has('amount')" class="error-text">{{ errors.first('amount')}}</span>
         </div>
       </div>
       <slot name="to"></slot>
       <div class="form-group">
         <slot name="for"></slot>
-        <div class="input-group col-md-8 col-xs-12">
-          <input type="text" name="for" class="form-control" v-model="forReasonText" v-validate="'required'" placeholder="Purpose"/>
+        <div class="col-md-8 col-xs-12">
+          <input type="text" name="for" :class="{'has-danger': errors.has('for')}" class="form-control" v-model="forReasonText" v-validate="'required'" placeholder="Purpose"/>
           <span v-show="errors.has('for')" class="error-text">{{ errors.first('for')}}</span>
         </div>
       </div>

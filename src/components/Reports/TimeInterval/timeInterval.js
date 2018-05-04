@@ -1,6 +1,7 @@
 import DatePicker from 'vue2-datepicker'
 import moment from 'moment'
-
+import Multiselect from 'vue-multiselect'
+import ledgerHeads from '@/assets/json/ledgerHeads.json'
 import data from '../../../assets/json/reportData.json'
 
 export default {
@@ -16,7 +17,9 @@ export default {
         messages: {
           'required': 'Select One'
         }
-      }
+      },
+      options: ledgerHeads.data,
+      values: []
     }
   },
   mounted () {
@@ -82,12 +85,13 @@ export default {
     generateReport () {
       this.$validator.validateAll().then((result) => {
         if (result) {
-          this.$router.push({name: 'ProfitAndLoss', params:{'title': 'Profit & Loss Report'}})
+          this.$router.push({name: this.title, params:{'title': this.title}})
         }
       })
     }
   },
   components: {
-    DatePicker
+    DatePicker,
+    Multiselect
   }
 }

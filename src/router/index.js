@@ -19,7 +19,7 @@ import PurchaseEntry from '@/components/Dashboard/PurchaseEntry/PurchaseEntry.vu
 import Reports from '@/components/Reports/Reports.vue'
 import ProfitAndLoss from '@/components/Reports/P&L/ProfitAndLoss.vue'
 import BalanceSheet from '@/components/Reports/BalanceSheet/BalanceSheet.vue'
-import Account from '@/components/Reports/Account/Account.vue'
+import LedgerAccount from '@/components/Reports/Account/Account.vue'
 import TimeInterval from '@/components/Reports/TimeInterval/TimeInterval.vue'
 
 Vue.use(Router)
@@ -165,9 +165,9 @@ export default new Router({
       }
     },
     {
-      path: '/account',
-      name: 'Account',
-      component: Account,
+      path: '/ledger-account',
+      name: 'LedgerAccount',
+      component: LedgerAccount,
       meta: {
         authRequired: true
       }
@@ -178,7 +178,7 @@ export default new Router({
       component: PlanAndPrice
     },
     {
-      path: '/p&l-time-interval',
+      path: '/time-interval',
       name: 'TimeInterval',
       component: TimeInterval
     }

@@ -6,6 +6,9 @@
           <div class="wrapper-title">
             Select Duration
           </div>
+          <div class="form-group" v-if="title == 'LedgerAccount'">
+            <multiselect v-model="values" :options="options" :multiple="true" group-values="list" group-label="category" :group-select="true" placeholder="Type to search" label="text" track-by="value"><span slot="noResult">Oops! No elements found. Consider changing the search query.</span></multiselect>
+          </div>
           <div class="form-group">
             <label class="control-label text-left">
               <input type="radio" name="interval" value="Last Month" v-model="durationType" @click="clicked" v-validate="'required'">

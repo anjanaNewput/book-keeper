@@ -28,6 +28,13 @@ export default {
   },
   methods: {
     saveData () {
+      this.$validator.validateAll().then((result) => {
+        if (result) {
+          console.log(result);
+        } else {
+
+        }
+      })
       console.log(this.items)
       console.log(this.formData)
     },
