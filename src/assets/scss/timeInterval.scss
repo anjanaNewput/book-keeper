@@ -1,0 +1,19 @@
+@import "./variables";
+
+
+.filter {
+  .form-group {
+    text-align: left;
+    .control-label {
+      font-size: 16px;
+    }
+  }
+  .error-text {
+    font-size: 15px;
+    margin: 15px;
+  }
+  .has-danger {
+    border: 2px solid $red-color;
+    border-radius: 4px;
+  }
+}

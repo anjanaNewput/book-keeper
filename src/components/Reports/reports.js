@@ -7,14 +7,26 @@ export default {
     }
   },
   mounted () {
-    console.log(this.$router);
+    // console.log("mounted");
+    // console.log(this.$route);
+    // if(this.$route.name === 'ProfitAndLoss') {
+    //   this.$router.push({name: 'ProfitAndLoss'})
+    // }
+  },
+  updated () {
+    if(this.$route.name === 'Reports') {
+      this.isShow = true
+    }
   },
   methods: {
     toggleShow () {
       this.isShow = !this.isShow
     },
+    goBack () {
+      this.toggleShow()
+    },
     changeRoute (routeName) {
-      this.$router.push({name: routeName})
+      this.$router.push({name: routeName, params:{'title': routeName}})
       this.title = routeName
       this.toggleShow()
     }

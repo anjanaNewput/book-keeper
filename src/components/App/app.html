@@ -50,11 +50,11 @@
               <router-link  v-if="paymentDone" to="/dashboard" tag="li" class="hidden-xs">
                 <a>Dashboard</a>
               </router-link>
-              <router-link v-if="paymentDone" to="/reports" tag="li" class="visible-xs" data-toggle="collapse" data-target=".navbar-collapse">
-                <a>My Reports</a>
+              <router-link to="/reports" tag="li" class="visible-xs" data-toggle="collapse" data-target=".navbar-collapse">
+                <a>Reports</a>
               </router-link>
-              <router-link v-if="paymentDone" to="/reports" tag="li" class="hidden-xs">
-                <a>My Reports</a>
+              <router-link to="/reports" tag="li" class="hidden-xs">
+                <a>Reports</a>
               </router-link>
               <li v-if="userEmail" class="user-profile">
                 <a @click="logout" class="hidden-xs">Logout

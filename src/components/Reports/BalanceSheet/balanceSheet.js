@@ -1,3 +1,6 @@
 export default {
-  name: 'BalanceSheet'
+  name: 'BalanceSheet',
+  mounted() {
+    console.log(this.$route);
+  }
 }

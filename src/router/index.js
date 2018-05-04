@@ -20,6 +20,7 @@ import Reports from '@/components/Reports/Reports.vue'
 import ProfitAndLoss from '@/components/Reports/P&L/ProfitAndLoss.vue'
 import BalanceSheet from '@/components/Reports/BalanceSheet/BalanceSheet.vue'
 import Account from '@/components/Reports/Account/Account.vue'
+import TimeInterval from '@/components/Reports/TimeInterval/TimeInterval.vue'
 
 Vue.use(Router)
 
@@ -121,17 +122,7 @@ export default new Router({
       component: Creditors,
       meta: {
         authRequired: true
-      },
-      children: [
-        {
-          path: 'add-more-creditor',
-          name: 'AddMoreCreditor',
-          component: AddMore,
-          meta: {
-            authRequired: true
-          }
-        }
-      ]
+      }
     },
     {
       path: '/my-debitors',
@@ -139,17 +130,7 @@ export default new Router({
       component: Debitors,
       meta: {
         authRequired: true
-      },
-      children: [
-        {
-          path: 'add-more-debitor',
-          name: 'AddMoreDebitor',
-          component: AddMore,
-          meta: {
-            authRequired: true
-          }
-        }
-      ]
+      }
     },
     {
       path: '/add-more/:type',
@@ -165,38 +146,41 @@ export default new Router({
       component: Reports,
       meta: {
         authRequired: true
-      },
-      children: [
-        {
-          path: 'profit-and-loss',
-          name: 'ProfitAndLoss',
-          component: ProfitAndLoss,
-          meta: {
-            authRequired: true
-          }
-        },
-        {
-          path: 'balance-sheet',
-          name: 'BalanceSheet',
-          component: BalanceSheet,
-          meta: {
-            authRequired: true
-          }
-        },
-        {
-          path: 'account',
-          name: 'Account',
-          component: Account,
-          meta: {
-            authRequired: true
-          }
-        }
-      ]
+      }
+    },
+    {
+      path: '/profit-and-loss',
+      name: 'ProfitAndLoss',
+      component: ProfitAndLoss,
+      meta: {
+        authRequired: true
+      }
+    },
+    {
+      path: '/balance-sheet',
+      name: 'BalanceSheet',
+      component: BalanceSheet,
+      meta: {
+        authRequired: true
+      }
+    },
+    {
+      path: '/account',
+      name: 'Account',
+      component: Account,
+      meta: {
+        authRequired: true
+      }
     },
     {
       path: '/plan',
       name: 'Plan',
       component: PlanAndPrice
+    },
+    {
+      path: '/p&l-time-interval',
+      name: 'TimeInterval',
+      component: TimeInterval
     }
   ],
   mode: 'history'

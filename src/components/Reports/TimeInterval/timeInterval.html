@@ -1,0 +1,55 @@
+<div class="filter">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-6 col-sm-offset-3">
+        <div class="wrapper">
+          <div class="wrapper-title">
+            Select Duration
+          </div>
+          <div class="form-group">
+            <label class="control-label text-left">
+              <input type="radio" name="interval" value="Last Month" v-model="durationType" @click="clicked" v-validate="'required'">
+              Last month
+            </label>
+          </div>
+          <div class="form-group">
+            <label class="control-label text-left">
+              <input type="radio" name="interval" value="Last Quarter" v-model="durationType" @click="clicked" v-validate="'required'">
+              Last Quarter
+            </label>
+          </div>
+          <div class="form-group">
+            <label class="control-label text-left">
+              <input type="radio" name="interval" value="Last Half Year" v-model="durationType" @click="clicked" v-validate="'required'">
+              Last Half Year
+            </label>
+          </div>
+          <div class="form-group">
+            <label class="control-label text-left">
+              <input type="radio" name="interval" value="Custom" v-model="durationType" v-validate="'required'">
+              Custom
+            </label>
+            <div class="row" v-if="durationType === 'Custom'">
+              <div class="col-sm-6">
+                <label class="control-label">From</label>
+                <div class="form-group">
+                  <date-picker class="datepicker" name="startDate" v-model="startDate" :first-day-of-week="1" :lang="'en'" :format="'dd/MM/yyyy'" :placeholder="'DD/MM/YYYY'" @input="inputFunction" v-validate="'required'" :class="{'has-danger': errors.has('startDate')}"></date-picker>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <label class="control-label">To </label>
+                <div class="form-group" >
+                  <date-picker class="datepicker" name="endDate" v-model="endDate" :first-day-of-week="1" :lang="'en'" :format="'dd/MM/yyyy'" :placeholder="'DD/MM/YYYY'" @input="inputFunction" v-validate="'required'" :class="{'has-danger': errors.has('endDate')}"></date-picker>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="error-text" v-show="errors.has('interval')">
+            <span>{{ errors.first('interval')}}</span>
+          </div>
+          <button type="button" class="btn app-btn" name="button" @click="generateReport">Generate</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

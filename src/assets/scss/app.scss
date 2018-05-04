@@ -37,11 +37,23 @@ body {
   background-color: #f1f1f1;
   padding-bottom: 30px;
 
+  .wrapper {
+    background-color: $white-color;
+    margin-top: 40px;
+    text-align: center;
+    padding: 30px;
+    .wrapper-title {
+      color: $theme-color;
+      font-size: 25px;
+      margin-bottom: 20px;
+    }
+  }
   .app-btn {
     background-color: $theme-color;
     color: $white-color;
     width: 200px;
     font-size: 17px;
+    outline: none;
   }
   .add-more-btn {
     cursor: pointer;

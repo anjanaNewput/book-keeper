@@ -1,68 +1,22 @@
 <div class="profit-and-loss">
   <div class="container-fluid">
     <div class="row">
-      <div class="col-sm-4">
+      <div class="col-sm-8 col-sm-offset-2">
         <div class="wrapper">
-          <div class="form-group">
-            <input type="radio" name="interval" value="Last Month" v-model="durationType" @click="clicked"> Last Month
+          <div class="wrapper-title text-center">
+            <span>{{title}}</span>
           </div>
-          <div class="form-group">
-            <input type="radio" name="interval" value="Last Quarter" v-model="durationType" @click="clicked"> Last Quarter
-            <select v-model="quarterValue" @change="selectFunction" v-if="durationType=== 'Last Quarter'">
-              <option hidden value="">Select</option>
-              <option value="1">JAN - MAR</option>
-              <option value="2">APR - JUN</option>
-              <option value="3">JUL - SEP</option>
-              <option value="4">OCT - DEC</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <input type="radio" name="interval" value="Half Year" v-model="durationType" @click="clicked"> Half Year
-            <select class="" v-model="halfYearValue" @change="selectFunction" v-if="durationType=== 'Half Year'">
-              <option hidden value="">Select</option>
-              <option value="1">JAN - JUN</option>
-              <option value="2">JUL - DEC</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <input type="radio" name="interval" value="Last Half Year" v-model="durationType" @click="clicked"> Last Half Year
-            <!-- <select class="" v-model="halfYearValue" @change="selectFunction" v-if="durationType=== 'Last Half Year'">
-              <option hidden value="">Select</option>
-              <option value="1">JAN - JUN</option>
-              <option value="2">JUL - DEC</option>
-            </select> -->
-          </div>
-          <div class="form-group">
-            <input type="radio" name="interval" value="Custom" v-model="durationType" @click="clicked"> Custom
-            <div class="row" v-if="durationType=== 'Custom'">
-              <div class="col-sm-6">
-                <label class="control-label">From</label>
-                <div class="form-group">
-                  <date-picker class="datepicker" name="startDate" v-model="startDate" :first-day-of-week="1" :lang="'en'" :format="'dd/MM/yyyy'" :placeholder="'DD/MM/YYYY'" @input="inputFunction"></date-picker>
-                </div>
-              </div>
-              <div class="col-sm-6">
-                <label class="control-label">To </label>
-                <div class="form-group">
-                  <date-picker class="datepicker" name="endDate" v-model="endDate" :first-day-of-week="1" :lang="'en'" :format="'dd/MM/yyyy'" :placeholder="'DD/MM/YYYY'" @input="inputFunction"></date-picker>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-8">
-        <div class="wrapper">
-          <div v-if="loading" class="spinner">
-            <span class="fa fa-spinner fa-spin fa-3x"></span>
-          </div>
-          <div class="container-fluid" v-else>
-            <div class="row" >
+          <div class="container-fluid">
+            <div class="row display-interval">
               <div class="col-sm-6">
                 <label>From :</label>&nbsp;&nbsp;
                 <span>{{reportData.startDate}}</span>
               </div>
-              <div class="col-sm-6">
+              <div class="col-sm-6 text-right hidden-xs">
+                <label>To : </label>&nbsp;&nbsp;
+                <span>{{reportData.endDate}}</span>
+              </div>
+              <div class="col-sm-6 visible-xs">
                 <label>To : </label>&nbsp;&nbsp;
                 <span>{{reportData.endDate}}</span>
               </div>
