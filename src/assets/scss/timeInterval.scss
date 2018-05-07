@@ -1,7 +1,9 @@
 @import "./variables";
 
-
 .filter {
+  .wrapper {
+    padding: 20px;
+  }
   .form-group {
     text-align: left;
     .control-label {

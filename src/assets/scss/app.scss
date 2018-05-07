@@ -30,7 +30,6 @@ body {
 .page {
   background: $dark-offwhite-color;
   min-height: 500px;
-  background-color: #f1f1f1;
   padding-bottom: 30px;
 
   .wrapper {
@@ -53,6 +52,7 @@ body {
   }
   .add-more-btn {
     cursor: pointer;
+    margin-bottom: 10px;
   }
   label {
     font-weight: 500;
@@ -168,10 +168,38 @@ body {
   text-align: center;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 375px) {
   .page {
+    min-height: 600px;
+    .wrapper {
+      padding: 30px 0px;
+    }
     .app-btn {
       width: 100%;
     }
+  }
+}
+
+@media screen and (max-width: 414px) and (min-width: 376px) {
+  .page {
+    min-height: 550px;
+    .wrapper {
+      padding: 30px 0px;
+    }
+    .app-btn {
+      width: 100%;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) and (min-width: 415px) {
+  .page {
+    min-height: 828px;
+  }
+}
+
+@media screen and (max-width: 1024px) and (min-width: 769px) {
+  .page {
+    min-height: 1140px;
   }
 }

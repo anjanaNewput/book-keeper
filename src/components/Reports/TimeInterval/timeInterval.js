@@ -1,6 +1,8 @@
 import DatePicker from 'vue2-datepicker'
 import moment from 'moment'
 import Multiselect from 'vue-multiselect'
+import { Validator } from 'vee-validate'
+
 import ledgerHeads from '@/assets/json/ledgerHeads.json'
 import data from '../../../assets/json/reportData.json'
 
@@ -23,9 +25,7 @@ export default {
     }
   },
   mounted () {
-    let start, end
-    this.title = this.$route.params.title
-    this.$validator.localize('en', this.dictionary)
+    this.title = this.$router.currentRoute.params.title
   },
   methods: {
     clicked (e) {
@@ -89,6 +89,12 @@ export default {
         }
       })
     }
+  },
+  beforeRouteEnter (to, from, next) {
+    if(from.params.title) {
+      to.params.title = from.params.title
+    }
+    next()
   },
   components: {
     DatePicker,

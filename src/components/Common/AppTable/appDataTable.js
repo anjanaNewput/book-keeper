@@ -3,11 +3,6 @@ export default {
   props: [
     'rowContent', 'columns'
   ],
-  data () {
-    return {
-
-    }
-  },
   methods: {
     editRow () {
       alert('Clicked edit')

@@ -25,10 +25,8 @@
               <span v-show="errors.has('form-2.password')" class="error-text">{{ errors.first('form-2.password')}}</span>
             </div>
 
-            <div class="row btn-wrapper">
-              <div class="col-sm-12 text-center">
-                <button class="btn btn-primary login-form-btn">Login</button>
-              </div>
+            <div class="btn-wrapper text-center">
+              <button class="btn app-btn">Login</button>
             </div>
           </form>
           <form v-show="!viaEmail" class="login-form" @submit.prevent="validateForm('form-1')" data-vv-scope="form-1">
@@ -39,10 +37,8 @@
               >
               <span v-show="errors.has('form-1.mob')" class="error-text">{{ errors.first('form-1.mob')}}</span>
             </div>
-            <div class="row btn-wrapper">
-              <div class="col-sm-12 text-center">
-                <button class="btn btn-primary login-form-btn">Get OTP</button>
-              </div>
+            <div class="btn-wrapper text-center">
+              <button class="btn app-btn">Get OTP</button>
             </div>
           </form>
           <div class="container-fluid other-links-wrapper">

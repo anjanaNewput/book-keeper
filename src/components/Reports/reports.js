@@ -6,13 +6,6 @@ export default {
       title: ''
     }
   },
-  mounted () {
-    // console.log("mounted");
-    // console.log(this.$route);
-    // if(this.$route.name === 'ProfitAndLoss') {
-    //   this.$router.push({name: 'ProfitAndLoss'})
-    // }
-  },
   updated () {
     if(this.$route.name === 'Reports') {
       this.isShow = true

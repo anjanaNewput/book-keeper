@@ -1,0 +1,53 @@
+{
+  "balanceSheet": [
+    { 
+      "income": [
+        {
+          "name": "Capital",
+          "amount": 200000
+        },
+        {
+          "name": "Creditors",
+          "amount": 155555
+        },
+        {
+          "name": "Payables",
+          "amount": 20000
+        },
+        {
+          "name": "Loan",
+          "amount": 90000
+        }
+      ],
+      "expense": [
+        {
+          "name": "House",
+          "amount": 20000
+        },
+        {
+          "name": "Car",
+          "amount": 200
+        },
+        {
+          "name": "Debitors",
+          "amount": 298
+        },
+        {
+          "name": "Advance",
+          "amount": 20000
+        },
+        {
+          "name": "Cash A/C",
+          "amount": 208700
+        },
+        {
+          "name": "Bank A/C",
+          "amount": 2000
+        }
+      ],
+      "totalIncome": 0,
+      "totalExpense": 0,
+      "totalAmount": 0
+    }
+  ]
+}

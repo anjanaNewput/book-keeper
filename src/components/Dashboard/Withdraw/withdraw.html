@@ -1,16 +1,16 @@
 <entry-form :category="category" v-on:check="check" :payType="payType">
   <div slot="dropdown">
-    <label class="col-md-4 col-xs-12">Cash Withdrawal Bank:</label>
-    <div class="col-md-8 col-xs-12">
-      <model-select :options="options" name="withdrawal-cat" v-model="category.text" v-validate="'required'" placeholder="Select option" :class="{'has-danger': errors.has('withdrawal-cat')}"></model-select>
-      <span v-show="errors.has('withdrawal-cat')" class="error-text">{{ errors.first('withdrawal-cat')}}</span>
-    </div>
+      <label class="col-md-4 col-xs-12">Cash Withdrawal Bank:</label>
+      <div class="col-md-8 col-xs-12">
+        <model-select :options="options" name="withdrawal-cat" v-model="category.text" v-validate="'required'" placeholder="Select option" :class="{'has-danger': errors.has('withdrawal-cat')}"></model-select>
+        <span v-show="errors.has('withdrawal-cat')" class="error-text">{{ errors.first('withdrawal-cat')}}</span>
+      </div>
   </div>
   <div slot="for">
     <label class="col-md-4 col-xs-12">Withdrawal For:</label>
   </div>
   <div slot="check-box-group">
-    <div class="col-xs-4 padding-0">
+    <div class="col-xs-4">
       <input class="form-check-input" name="payment-mode" type="radio" v-model="payType" id="bank" value="bank" :class="{'has-danger': errors.has('payment-mode')}">
       <label class="form-check-label" for="bank">Bank</label>
     </div>

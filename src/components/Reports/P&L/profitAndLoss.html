@@ -4,7 +4,7 @@
       <div class="col-sm-8 col-sm-offset-2">
         <div class="wrapper">
           <div class="wrapper-title text-center">
-            <span>{{title}}</span>
+            <span>Profit & Loss Report</span>
           </div>
           <div class="container-fluid">
             <div class="row display-interval">
@@ -21,7 +21,9 @@
                 <span>{{reportData.endDate}}</span>
               </div>
             </div>
-            <table class="table table-striped table-bordered">
+            <app-table :rowContent="rows" :columns="columns">
+            </app-table>
+            <!-- <table class="table table-striped table-bordered">
               <caption><h4>Income</h4></caption>
               <thead>
                 <tr>
@@ -70,7 +72,7 @@
                   <td>{{reportData.resultAmount}}</td>
                 </tr>
               </tfoot>
-            </table>
+            </table> -->
           </div>
         </div>
       </div>

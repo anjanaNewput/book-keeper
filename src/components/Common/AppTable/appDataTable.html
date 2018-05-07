@@ -5,6 +5,10 @@
     enabled: true,
     perPage: 5,
   }"
+  :groupOptions="{
+    enabled: true,
+    headerPosition: 'bottom',
+  }"
   styleClass="vgt-table bordered">
   <template slot="table-row" slot-scope="props">
     <span v-if="props.column.field === 'action'">

@@ -2,7 +2,6 @@
 
 .form-wrapper {
   background-color: $white-color;
-  border-radius: 5px;
   margin: 30px 15px;
   padding: 15px 15px 35px;
 
@@ -48,10 +47,11 @@
     form {
       margin: 15px 0;
       padding: 15px 0;
-      .btn {
-        border-radius: 3px;
-        font-size: 17px;
-        width: 100%;
+      .btn-wrapper {
+        .app-btn {
+          margin-bottom: 10px;
+          width: 100%;
+        }
       }
     }
   }
@@ -63,11 +63,24 @@
     form {
       margin: 15px 0;
       padding: 15px 0;
-      .btn {
-        border-radius: 3px;
-        font-size: 17px;
-        width: 100%;
+      .btn-wrapper {
+        .app-btn {
+          margin-bottom: 10px;
+          width: 100%;
+        }
       }
     }
+  }
+}
+
+@media screen and (max-width: 768px) and (min-width: 415px) {
+  .form-wrapper {
+    margin: 95px 0;
+  }
+}
+
+@media screen and (max-width: 1024px) and (min-width: 769px) {
+  .form-wrapper {
+    margin: 95px 0;
   }
 }
