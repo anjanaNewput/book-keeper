@@ -1,0 +1,52 @@
+{
+  "data": [
+    {
+      "srno": "1",
+      "date": "31/10/2017",
+      "particulars":"sold goods",
+      "debitAmt": null,
+      "creditAmt": 10000,
+      "balance": 100000
+    },
+    {
+      "srno": "2",
+      "date": "02/03/2018",
+      "particulars":"Spent on food",
+      "debitAmt": 2000,
+      "creditAmt": null,
+      "balance": 100000
+    },
+    {
+      "srno": "3",
+      "date": "03/04/2018",
+      "particulars":"Spent on rent",
+      "debitAmt": 7000,
+      "creditAmt": null,
+      "balance": 100000
+    },
+    {
+      "srno": "4",
+      "date": "04/12/2018",
+      "particulars":"sold bike",
+      "debitAmt": null,
+      "creditAmt": 20000,
+      "balance": 100000
+    },
+    {
+      "srno": "5",
+      "date": "02/02/2018",
+      "particulars":"Income from selling goods",
+      "debitAmt": null,
+      "creditAmt": 10000,
+      "balance": 100000
+    },
+    {
+      "srno": "6",
+      "date": "01/24/2018",
+      "particulars":"Income from selling goods",
+      "debitAmt": null,
+      "creditAmt": 10000,
+      "balance": 100000
+    }
+  ]
+}

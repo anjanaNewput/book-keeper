@@ -1,3 +1,21 @@
-<div class="wrapper page">
-  <h1>hello</h1>
+<div class="row wrapper">
+  <div class="ledger-acc">
+    <h3 class="text-center">Ledger Account</h3>
+    <div class="row display-interval">
+      <div class="col-sm-6">
+        <label>From :</label>&nbsp;&nbsp;
+        <span>{{reportData.startDate}}</span>
+      </div>
+      <div class="col-sm-6 text-right hidden-xs">
+        <label>To : </label>&nbsp;&nbsp;
+        <span>{{reportData.endDate}}</span>
+      </div>
+      <div class="col-sm-6 visible-xs">
+        <label>To : </label>&nbsp;&nbsp;
+        <span>{{reportData.endDate}}</span>
+      </div>
+    </div>
+    <app-table :rowContent="rows" :columns="columns">
+    </app-table>
+  </div>
 </div>
