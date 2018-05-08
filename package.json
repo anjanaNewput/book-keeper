@@ -6,7 +6,7 @@
   "private": true,
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
-    "start": "npm run dev",
+    "start": "node server.js",
     "unit": "cross-env BABEL_ENV=test karma start test/unit/karma.conf.js --single-run",
     "e2e": "node test/e2e/runner.js",
     "test": "npm run unit && npm run e2e",
@@ -15,8 +15,10 @@
   },
   "dependencies": {
     "css-loader": "^0.28.11",
+    "express": "^4.16.3",
     "jquery": "^3.3.1",
     "moment": "^2.22.1",
+    "path": "^0.12.7",
     "popper.js": "^1.14.3",
     "vee-validate": "^2.0.6",
     "vue": "^2.5.2",
@@ -25,6 +27,7 @@
     "vue-good-table": "^2.4.4",
     "vue-localstorage": "^0.6.2",
     "vue-multiselect": "^2.1.0",
+    "vue-resource": "^1.5.0",
     "vue-router": "^3.0.1",
     "vue-search-select": "^2.6.1",
     "vue-style-loader": "^3.1.2",
