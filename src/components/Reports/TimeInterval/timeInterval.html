@@ -7,7 +7,13 @@
             Select Duration
           </div>
           <div class="form-group" v-if="title === 'LedgerAccount'">
-            <multiselect v-model="values" :options="options" :multiple="true" group-values="list" group-label="category" :group-select="true" placeholder="Type to search" label="text" track-by="value"><span slot="noResult">Oops! No elements found. Consider changing the search query.</span></multiselect>
+            <multiselect name="value" v-model="values" group-values="list" group-label="category" placeholder="Type to search" label="text" track-by="value" :group-select="true" :options="options" :multiple="true" v-validate="'required'" :class="{'has-danger': errors.has('value')}">
+              <span slot="noResult">Oops! No elements found. Consider changing the search query.</span>
+            </multiselect>
+            <span v-show="errors.has('value')"
+                  class="error-text">
+                  {{ errors.first('value')}}
+            </span>
           </div>
           <div class="form-group">
             <label class="control-label text-left">

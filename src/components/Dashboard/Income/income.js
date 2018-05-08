@@ -23,10 +23,9 @@ export default {
     check () {
       this.$validator.validateAll().then((result) => {
         if (result) {
-          console.log('hiiiii')
+          alert('Success')
         } else {
-          console.log(result);
-          //  console.log('hiiiii')
+          alert('Error')
         }
       })
     }

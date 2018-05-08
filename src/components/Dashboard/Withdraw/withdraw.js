@@ -30,9 +30,9 @@ export default {
     check () {
       this.$validator.validate('withdrawal-cat').then((result) => {
         if (result) {
-          console.log('hiiiii')
+          alert('Success')
         } else {
-          console.log(result);
+          alert('Error')
         }
       })
     }

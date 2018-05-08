@@ -30,13 +30,11 @@ export default {
     saveData () {
       this.$validator.validateAll().then((result) => {
         if (result) {
-          console.log(result);
+          alert('Success')
         } else {
-
+          alert('Error')
         }
       })
-      console.log(this.items)
-      console.log(this.formData)
     },
     addMoreRow () {
       this.items.push({totAmt: null, gstRate: null, rate: null, quantity: null, category: {text: '', value: '', gstRate: null}})

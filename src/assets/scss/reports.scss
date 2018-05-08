@@ -1,11 +1,7 @@
 @import "./variables";
 
 .wrapper {
-  .wrapper-title {
-    span {
-      vertical-align: middle;
-    }
-  }
+  text-align: left;
   .links-wrapper {
     margin: 0 auto;
     padding: 10px;
@@ -26,5 +22,13 @@
         color: $theme-color;
       }
     }
+  }
+  .display-interval {
+    label, span {
+      font-size: 16px;
+    }
+  }
+  .vgt-wrap {
+    margin-top: 0;
   }
 }

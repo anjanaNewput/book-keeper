@@ -13,6 +13,7 @@ import 'vue-good-table/dist/vue-good-table.css'
 Vue.use(VeeValidate)
 Vue.use(VueLocalStorage)
 Vue.use(VueGoodTable)
+
 Vue.config.productionTip = false
 
 // router intercepter

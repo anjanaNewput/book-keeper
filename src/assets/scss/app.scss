@@ -34,9 +34,10 @@ body {
 
   .wrapper {
     background-color: $white-color;
+    border-radius: 5px;
     margin-top: 40px;
     text-align: center;
-    padding: 30px;
+    padding: 30px 10px;
     .wrapper-title {
       color: $theme-color;
       font-size: 25px;
@@ -59,6 +60,7 @@ body {
   }
   .has-danger {
     border: 1px solid $red-color !important;
+    border-radius: 4px;
   }
   .ui.selection.dropdown .menu > .item {
     font-size: 14px;
@@ -86,7 +88,7 @@ body {
 .error-text {
   color: $red-color;
   font-weight: 400;
-  padding-top: 10px;
+  // padding-top: 10px;
 }
 #header {
   background-color: $white-color;
@@ -161,7 +163,14 @@ body {
     width: 210px;
   }
 }
-
+.breadcrumb {
+  background-color: $theme-color;
+  border-radius: 0;
+  color: $white-color;
+  a {
+    color: $white-color;
+  }
+}
 .footer {
   color: $theme-color;
   padding: 30px;
@@ -172,7 +181,7 @@ body {
   .page {
     min-height: 600px;
     .wrapper {
-      padding: 30px 0px;
+      padding: 30px 10px;
     }
     .app-btn {
       width: 100%;
@@ -184,7 +193,7 @@ body {
   .page {
     min-height: 550px;
     .wrapper {
-      padding: 30px 0px;
+      padding: 30px 10px;
     }
     .app-btn {
       width: 100%;

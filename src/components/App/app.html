@@ -50,10 +50,10 @@
               <router-link  v-if="paymentDone" to="/dashboard" tag="li" class="hidden-xs">
                 <a>Dashboard</a>
               </router-link>
-              <router-link to="/reports" tag="li" class="visible-xs" data-toggle="collapse" data-target=".navbar-collapse">
+              <router-link v-if="paymentDone" to="/reports" tag="li" class="visible-xs" data-toggle="collapse" data-target=".navbar-collapse">
                 <a>Reports</a>
               </router-link>
-              <router-link to="/reports" tag="li" class="hidden-xs">
+              <router-link v-if="paymentDone" to="/reports" tag="li" class="hidden-xs">
                 <a>Reports</a>
               </router-link>
               <li v-if="userEmail" class="user-profile">
@@ -69,6 +69,9 @@
         </ul>
       </div>
     </div>
+  </nav>
+  <nav class="breadcrumb" v-if="$breadcrumbs.length">You are here: 
+    <router-link class="breadcrumb-item" v-for="(crumb, key) in $breadcrumbs" :to="crumb.path" :key="key">{{ crumb.meta.breadcrumb }}</router-link>
   </nav>
   <router-view class="page"/>
   <div class="footer">Copyright &copy; 2018 by Newput Inc. All rights reserved. BookKeeper and BookKeeper logo are trademarks of Newput Inc. Patent pending

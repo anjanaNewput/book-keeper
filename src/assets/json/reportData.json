@@ -1,39 +1,37 @@
 {
   "reportData": [
     {
-      "startDate": "",
-      "endDate": "" ,
       "income": [
         {
           "id": 1,
-          "from": "Sale",
+          "name": "Sale",
           "amount": 1000.01
         },
         {
           "id": 2,
-          "from": "Interest",
+          "name": "Interest",
           "amount": 1100.022
         },
         {
           "id": 3,
-          "from": "Discount",
+          "name": "Discount",
           "amount": 1010
         }
       ],
       "expense": [
         {
           "id": 1,
-          "for": "Rent",
+          "name": "Rent",
           "amount": 1000
         },
         {
           "id": 2,
-          "for": "Travelling",
+          "name": "Travelling",
           "amount": 1800
         },
         {
           "id": 3,
-          "for": "Fee",
+          "name": "Fee",
           "amount": 50010
         }
       ],

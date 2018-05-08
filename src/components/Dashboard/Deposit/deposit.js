@@ -31,10 +31,9 @@ export default {
     check () {
       this.$validator.validate('deposit-cat').then((result) => {
         if (result) {
-          console.log('hiiiii')
+          alert('Submit')
         } else {
-          console.log(result);
-          //  console.log('hiiiii')
+          alert('Error')
         }
       })
     }

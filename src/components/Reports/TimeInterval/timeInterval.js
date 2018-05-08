@@ -21,7 +21,8 @@ export default {
         }
       },
       options: ledgerHeads.data,
-      values: []
+      values: [],
+      value: ''
     }
   },
   mounted () {

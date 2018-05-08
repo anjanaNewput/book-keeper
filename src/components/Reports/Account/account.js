@@ -16,36 +16,48 @@ export default {
       columns: [
         {
           label: 'SNo.',
-          field: 'srno'
+          field: 'srno',
+          tdClass: 'custom-td-class',
+          thClass: 'custom-th-class'
         },
         {
           label: 'Date',
           field: 'date',
           type: 'date',
           dateInputFormat: 'DD/MM/YYYY',
-          dateOutputFormat: 'MMM Do YY'
+          dateOutputFormat: 'MMM Do YY',
+          tdClass: 'custom-td-class',
+          thClass: 'custom-th-class'
         },
         {
           label: 'Particulars',
           field: 'particulars',
-          sortable: false
+          sortable: false,
+          tdClass: 'custom-td-class',
+          thClass: 'custom-th-class'
         },
         {
           label: 'DR',
           field: 'debitAmt',
           type: 'number',
-          headerField: this.sumDR,
+          tdClass: 'custom-td-class',
+          thClass: 'custom-th-class',
+          headerField: this.sumDR
         },
         {
           label: 'CR',
           field: 'creditAmt',
           type: 'number',
-          headerField: this.sumCR,
+          tdClass: 'custom-td-class',
+          thClass: 'custom-th-class',
+          headerField: this.sumCR
         },
         {
           label: 'Balance',
           field: 'balance',
-          type: 'number'
+          type: 'number',
+          tdClass: 'custom-td-class',
+          thClass: 'custom-th-class'
         },
       ]
     }
