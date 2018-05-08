@@ -9,7 +9,7 @@
         </button>
         <router-link class="navbar-brand" to="/"><img class="logo" src="../../assets/img/logo.png"></router-link>
       </div>
-      <div class="collapse navbar-collapse" id="myNavbar">
+      <div class="collapse navbar-collapse" id="myNavbar" style="height: 0.994318px;">
         <ul class="nav navbar-nav navbar-right">
           <router-link to="/" class="hidden-xs" tag="li">
             <a> Home </a>
@@ -50,7 +50,13 @@
               <router-link  v-if="paymentDone" to="/dashboard" tag="li" class="hidden-xs">
                 <a>Dashboard</a>
               </router-link>
-              <li class="user-profile">
+              <router-link v-if="paymentDone" to="/reports" tag="li" class="visible-xs" data-toggle="collapse" data-target=".navbar-collapse">
+                <a>Reports</a>
+              </router-link>
+              <router-link v-if="paymentDone" to="/reports" tag="li" class="hidden-xs">
+                <a>Reports</a>
+              </router-link>
+              <li v-if="userEmail" class="user-profile">
                 <a @click="logout" class="hidden-xs">Logout
                   <span class="glyphicon glyphicon-off"></span>
                 </a>
@@ -63,6 +69,9 @@
         </ul>
       </div>
     </div>
+  </nav>
+  <nav class="breadcrumb" v-if="$breadcrumbs.length">You are here: 
+    <router-link class="breadcrumb-item" v-for="(crumb, key) in $breadcrumbs" :to="crumb.path" :key="key">{{ crumb.meta.breadcrumb }}</router-link>
   </nav>
   <router-view class="page"/>
   <div class="footer">Copyright &copy; 2018 by Newput Inc. All rights reserved. BookKeeper and BookKeeper logo are trademarks of Newput Inc. Patent pending

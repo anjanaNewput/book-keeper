@@ -41,6 +41,7 @@ export default {
       let year = `${i}-${i+1}`
       this.options.push(year)
     }
+    this.finacialYear = this.options[this.options.length - 1]
 
     Validator.extend('email', {
       getMessage: (field) => {

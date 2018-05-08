@@ -1,23 +1,18 @@
 import EntryForm from '../EntryForm/EntryForm.vue'
 import { ModelSelect } from 'vue-search-select'
+import incomeList from '@/assets/json/ledgerHeads.json'
 
 export default {
   data () {
     return {
-      options: [
-        { value: '1', text: 'Sales' },
-        { value: '2', text: 'Commission' },
-        { value: '3', text: 'Rent' },
-        { value: '4', text: 'Interest' },
-        { value: '5', text: 'Discount' }
-      ],
+      options: incomeList.data[1].list,
       searchText: '',
       toText: '',
       category: {
         value: '',
         text: ''
-      }
-
+      },
+      payType: 'cash'
     }
   },
   components: {
@@ -28,10 +23,9 @@ export default {
     check () {
       this.$validator.validateAll().then((result) => {
         if (result) {
-          console.log('hiiiii')
+          alert('Success')
         } else {
-          console.log(result);
-          //  console.log('hiiiii')
+          alert('Error')
         }
       })
     }

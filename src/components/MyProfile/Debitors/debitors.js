@@ -5,12 +5,6 @@ export default {
   name: 'CreditSale',
   data () {
     return {
-      form: {
-        'id': '',
-        'name': '',
-        'mob': '',
-        'gst': ''
-      },
       columns: [
         {
           label: 'Id',
@@ -55,17 +49,13 @@ export default {
   },
   methods: {
     addMoreDebitor () {
-      this.$router.push('/add-more')
-    },
-    validateForm () {
-      alert(this.form);
-      this.$store.commit('getCreditSaleData', this.form)
-      this.form = {}
+      this.view = false
+      this.$router.push({name: 'AddMore', params: {'type': 'debitor', 'viewName': 'Add Debitor'}})
     }
   },
   computed: {
     tableData () {
-      return this.$store.state.creditSaleData
+      return this.$store.state.debitorsData
     }
   },
   components: {

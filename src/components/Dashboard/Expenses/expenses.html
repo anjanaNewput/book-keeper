@@ -1,22 +1,35 @@
-<entry-form :category="category" :toText="toText" v-on:check="check">
+<entry-form :category="category" :toText="toText" v-on:check="check" :payType="payType">
   <div slot="dropdown">
     <label class="col-md-4 col-xs-12">Expenses:</label>
-    <div class="input-group col-md-8 col-xs-12">
-      <model-select :options="options" name="expense-cat" v-model="category.text" v-validate="'required'" placeholder="Select option"></model-select>
+    <div class="col-md-8 col-xs-12">
+      <model-select :options="options" name="expense-cat" :class="{'has-danger': errors.has('expense-cat')}" v-model="category.text" v-validate="'required'" placeholder="Select option"></model-select>
       <span v-show="errors.has('expense-cat')" class="error-text">{{ errors.first('expense-cat')}}</span>
     </div>
-
   </div>
-  <div slot="to">
-    <div class="form-group">
+  <div class="form-group" slot="to">
+    <div class="row">
       <label class="col-md-4 col-xs-12">Paid To:</label>
-      <div class="input-group col-md-8 col-xs-12">
-        <input type="text" name="to" class="form-control" v-model="toText" v-validate="'required'" placeholder="Enter the account/name to whom you paid"/>
+      <div class="col-md-8 col-xs-12">
+        <input type="text" name="to" class="form-control" :class="{'has-danger': errors.has('to')}" v-model="toText" v-validate="'required'" placeholder="Enter the account/name to whom you paid"/>
         <span v-show="errors.has('to')" class="error-text">{{ errors.first('to')}}</span>
       </div>
     </div>
   </div>
   <div slot="for">
     <label class="col-md-4 col-xs-12">Paid For:</label>
+  </div>
+  <div slot="check-box-group">
+    <div class="col-xs-4 padding-0">
+      <input class="form-check-input" name="payment-mode" v-model="payType" type="radio" id="cash" value="cash">
+      <label class="form-check-label" for="cash">Cash</label>
+    </div>
+    <div class="col-xs-4 padding-0">
+      <input class="form-check-input" name="payment-mode" type="radio" v-model="payType" id="bank" value="bank">
+      <label class="form-check-label" for="bank">Bank</label>
+    </div>
+    <div class="col-xs-4 padding-0">
+      <input class="form-check-input" name="payment-mode" type="radio" v-model="payType" id="credit" value="credit">
+      <label class="form-check-label" for="credit">Credit</label>
+    </div>
   </div>
 </entry-form>

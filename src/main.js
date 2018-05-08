@@ -4,17 +4,16 @@ import Vue from 'vue'
 import App from '@/components/App/App.vue'
 import router from './router'
 import VeeValidate from 'vee-validate'
-import datePicker from 'vue-bootstrap-datetimepicker'
 import VueLocalStorage from 'vue-localstorage'
 import VueGoodTable from 'vue-good-table'
 
 import { store } from './store'
 import 'vue-good-table/dist/vue-good-table.css'
 
-Vue.use(datePicker)
 Vue.use(VeeValidate)
 Vue.use(VueLocalStorage)
 Vue.use(VueGoodTable)
+
 Vue.config.productionTip = false
 
 // router intercepter

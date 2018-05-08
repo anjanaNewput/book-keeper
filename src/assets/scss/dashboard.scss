@@ -30,12 +30,12 @@
    margin: 20px auto;
    background-color: #ffffff;
  }
- .sale-purchase-form {
-   width: 85%;
-   padding: 40px 60px;
-   margin: 20px auto;
-   background-color: #ffffff;
- }
+ // .sale-purchase-form {
+ //   width: 85%;
+ //   padding: 40px 60px;
+ //   margin: 20px auto;
+ //   background-color: #ffffff;
+ // }
  .amt-bal {
    font-size: 15px;
    font-weight: 500;
@@ -55,11 +55,11 @@
  }
  .item-row {
    border-bottom: 1px solid #D9D9D9;
-   margin: 15px 0;
+   margin: 15px -10px;
  }
  .item-header {
    background-color: #FAFAFA;
-   margin-top: 15px;
+   margin: 15px -10px 0 -10px;
    padding: 10px;
    height: 40px;
  }
@@ -77,11 +77,6 @@
     .form-content {
       width: 100%;
       padding: 20px 30px;
-    }
-    .sale-purchase-form {
-      width: 100%;
-      padding: 20px 30px;
-
     }
   }
 }

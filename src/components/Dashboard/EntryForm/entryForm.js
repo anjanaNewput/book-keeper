@@ -1,10 +1,9 @@
 import DatePicker from 'vue2-datepicker'
 
 export default {
-  props: ['category', 'toText'],
+  props: ['category', 'toText', 'payType'],
   data () {
     return {
-      payType: 'cash',
       txnDate: null,
       amount: null,
       forReasonText: '',
@@ -24,16 +23,11 @@ export default {
       this.$emit('check')
       this.$validator.validateAll().then((result) => {
         if (result) {
+          alert('Success')
         } else {
-
+          alert('Error')
         }
       })
-      console.log(this.payType)
-      console.log(this.category.text)
-      console.log(this.amount)
-      console.log(this.toText)
-      console.log(this.forReasonText)
-      console.log(this.txnDate)
     }
   },
   components: {

@@ -1,4 +1,5 @@
 @import './variables.scss';
+@import './form.scss';
 
 * {
   box-sizing: border-box;
@@ -7,35 +8,87 @@
 body {
   font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 }
-
-.form-group {
-  min-height: 35px;
+.multiselect__tag{
+  background-color: transparent !important;
+  border: 1px solid $theme-color !important;
+  color: $theme-color !important;
+}
+.multiselect__option:hover{
+  background-color: $theme-color !important;
+}
+.multiselect__option--highlight, .multiselect__option--highlight:after{
+  background-color: $theme-color !important;
+}
+.multiselect__tag-icon  {
+  background-color: transparent !important;
+  color: $theme-color !important;
+  &:hover, &:focus {
+    background-color: $theme-color !important;
+  }
 }
 
 .page {
   background: $dark-offwhite-color;
   min-height: 500px;
-  background-color: #f1f1f1;
   padding-bottom: 30px;
 
+  .wrapper {
+    background-color: $white-color;
+    border-radius: 5px;
+    margin-top: 40px;
+    text-align: center;
+    padding: 30px 10px;
+    .wrapper-title {
+      color: $theme-color;
+      font-size: 25px;
+      margin-bottom: 20px;
+    }
+  }
   .app-btn {
     background-color: $theme-color;
     color: $white-color;
     width: 200px;
     font-size: 17px;
+    outline: none;
   }
   .add-more-btn {
     cursor: pointer;
+    margin-bottom: 10px;
   }
   label {
     font-weight: 500;
+  }
+  .has-danger {
+    border: 1px solid $red-color !important;
+    border-radius: 4px;
+  }
+  .ui.selection.dropdown .menu > .item {
+    font-size: 14px;
+  }
+  .ui.selection.dropdown {
+      display: block;
+      width: 100%;
+      min-height: 0;
+      padding: 6px 15px;
+      font-size: 14px;
+      line-height: 1.42857143;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+  }
+
+  .ui.dropdown:not(.button) > .default.text, .ui.default.dropdown:not(.button) > .text{
+    color: #929292;
+  }
+
+  .form-group {
+    min-height: 35px;
   }
 }
 
 .error-text {
   color: $red-color;
   font-weight: 400;
-  padding-top: 10px;
+  // padding-top: 10px;
 }
 #header {
   background-color: $white-color;
@@ -110,17 +163,52 @@ body {
     width: 210px;
   }
 }
-
+.breadcrumb {
+  background-color: $theme-color;
+  border-radius: 0;
+  color: $white-color;
+  a {
+    color: $white-color;
+  }
+}
 .footer {
   color: $theme-color;
   padding: 30px;
   text-align: center;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 375px) {
   .page {
+    min-height: 600px;
+    .wrapper {
+      padding: 30px 10px;
+    }
     .app-btn {
       width: 100%;
     }
+  }
+}
+
+@media screen and (max-width: 414px) and (min-width: 376px) {
+  .page {
+    min-height: 550px;
+    .wrapper {
+      padding: 30px 10px;
+    }
+    .app-btn {
+      width: 100%;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) and (min-width: 415px) {
+  .page {
+    min-height: 828px;
+  }
+}
+
+@media screen and (max-width: 1024px) and (min-width: 769px) {
+  .page {
+    min-height: 1140px;
   }
 }

@@ -1,0 +1,31 @@
+<div class="ledger-ac">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-8 col-sm-offset-2">
+        <div class="wrapper">
+          <div class="wrapper-title text-center">
+            Ledger Account
+          </div>
+          <div class="container-fluid">
+            <div class="row display-interval">
+              <div class="col-sm-6">
+                <label>From :</label>&nbsp;&nbsp;
+                <span>{{reportData.startDate}}</span>
+              </div>
+              <div class="col-sm-6 text-right hidden-xs">
+                <label>To : </label>&nbsp;&nbsp;
+                <span>{{reportData.endDate}}</span>
+              </div>
+              <div class="col-sm-6 visible-xs">
+                <label>To : </label>&nbsp;&nbsp;
+                <span>{{reportData.endDate}}</span>
+              </div>
+            </div>
+            <app-table :rowContent="rows" :columns="columns" :gpOption=true :pgOption=true>
+            </app-table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

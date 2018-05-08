@@ -1,15 +1,14 @@
 <div class="company-info">
   <div class="container-fluid">
     <div class="row">
-      <div class="col-sm-6 col-sm-offset-3">
+      <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
         <div class="company-info-wrap form-wrapper">
           <div class="company-info-title form-title">
             Company/Firm Information
           </div>
           <form class="company-info-form" @submit.prevent="validateForm">
             <div class="form-group">
-              <label class="control-label"
-                     :class="{'error-text': errors.has('firmName')}">
+              <label class="control-label">
                 Company/Firm Name
               </label>
               <input type="text" placeholder="Company Name"
@@ -24,8 +23,7 @@
               </span>
             </div>
             <div class="form-group">
-              <label class="control-label"
-                     :class="{'error-text': errors.has('finacialYear')}">
+              <label class="control-label">
                      Financial Year
               </label>
               <select name="finacialYear" placeholder="Financial Year" class="form-control"
@@ -48,35 +46,31 @@
               <div class="form-group" v-for="(row, index) in getRows">
                 <div class="row">
                   <div class="col-sm-6">
-                    <label class="control-label"
-                           :class="{'error-text': errors.has('bank' + row['bank' + (index+1)].id + 'name')}">
+                    <label class="control-label">
                            Bank
                     </label>
-                    <!-- <select  :name="'bank' + row['bank' + (index+1)].id + 'name'" v-model="row['bank' + (index+1)].name" class="form-control" v-validate="'required'" placeholder="Select bank">
-                      <option v-for="bank in banks" :value="bank.id">{{bank.name}}</option>
-                    </select> -->
                     <model-select :options="banks"
                                   class="form-control"
                                   placeholder="Select Bank"
                                   :name="'bank' + row['bank' + (index+1)].id + 'name'"
                                   :class="{'has-danger': errors.has('bank' + row['bank' + (index+1)].id + 'name')}"
                                   v-model="row['bank' + (index+1)].name"
-                                  v-validate="'required'"
+                                  v-validate="row['bank' + (index+1)].accountNo ? 'required': ''"
                                   >
                     </model-select>
-                    <span v-show="errors.has('bank' + row['bank' + (index+1)].id + 'name')"    class="error-text">
+                    <span v-show="errors.has('bank' + row['bank' + (index+1)].id + 'name')"  class="error-text">
                       {{ errors.first('bank' + row['bank' + (index+1)].id + 'name')}}
                     </span>
                   </div>
                   <div class="col-sm-6">
-                    <label class="control-label"
-                           :class="{'error-text': errors.has('bank' + row['bank' + (index+1)].id + 'accountNo')}">
+                    <label class="control-label">
                            Account No.
                      </label>
-                    <input type="text" placeholder="Account No."
-                            :name="'bank' + row['bank' + (index+1)].id + 'accountNo'"  v-model="row['bank' + (index+1)].accountNo" class="form-control"  v-validate="'required'"
+                    <input type="text" placeholder="Account No." class="form-control"
+                            :name="'bank' + row['bank' + (index+1)].id + 'accountNo'"
                             :class="{'has-danger': errors.has('bank' + row['bank' + (index+1)].id + 'accountNo')}"
-                      >
+                            v-model="row['bank' + (index+1)].accountNo"
+                            v-validate="row['bank' + (index+1)].name ? 'required': ''">
                     <span v-show="errors.has('bank' + row['bank' + (index+1)].id + 'accountNo')" class="error-text">
                       {{errors.first('bank' + row['bank' + (index+1)].id + 'accountNo')}}
                    </span>

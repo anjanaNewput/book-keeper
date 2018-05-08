@@ -1,13 +1,8 @@
 export default {
   name: 'AppDataTable',
   props: [
-    'rowContent', 'columns'
+    'rowContent', 'columns', 'gpOption', 'pgOption'
   ],
-  data () {
-    return {
-
-    }
-  },
   methods: {
     editRow () {
       alert('Clicked edit')

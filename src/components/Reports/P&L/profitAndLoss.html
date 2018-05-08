@@ -1,0 +1,51 @@
+<div class="profit-and-loss">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-8 col-sm-offset-2">
+        <div class="wrapper">
+          <div class="wrapper-title text-center">
+            <span>Profit & Loss Report</span>
+          </div>
+          <div class="container-fluid">
+            <div class="row display-interval">
+              <div class="col-sm-6">
+                <label>From :</label>&nbsp;&nbsp;
+                <span>{{reportData.startDate}}</span>
+              </div>
+              <div class="col-sm-6 text-right hidden-xs">
+                <label>To : </label>&nbsp;&nbsp;
+                <span>{{reportData.endDate}}</span>
+              </div>
+              <div class="col-sm-6 visible-xs">
+                <label>To : </label>&nbsp;&nbsp;
+                <span>{{reportData.endDate}}</span>
+              </div>
+            </div>
+            <div class="">
+              <caption>
+                <h4>Income</h4>
+              </caption>
+            </div>
+            <app-table :rowContent="income" :columns="incomeColumns" :gpOption=true :pgOption=false>
+            </app-table>
+            <div class="">
+              <caption>
+                <h4>Expense</h4>
+              </caption>
+            </div>
+            <app-table :rowContent="expense" :columns="expenseColumns" :gpOption=true :pgOption=false>
+            </app-table>
+            <table class="table table-striped table-bordered">
+              <thead>
+                <tr>
+                  <th class="text-right text-bold" width="67%">Profit</th>
+                  <th>{{incomeTotal - expenseTotal}}</th>
+                </tr>
+              </thead>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

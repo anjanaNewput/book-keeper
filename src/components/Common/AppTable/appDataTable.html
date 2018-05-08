@@ -1,10 +1,14 @@
 <vue-good-table ref="vueTable"
   :columns="columns"
   :rows="rowContent"
-  :pagination-options="{
+  :pagination-options="pgOption ? {
     enabled: true,
-    perPage: 5,
-  }"
+    perPage: 10,
+  } : '' "
+  :groupOptions="gpOption ? {
+    enabled: true,
+    headerPosition: 'bottom',
+  } : '' "
   styleClass="vgt-table bordered">
   <template slot="table-row" slot-scope="props">
     <span v-if="props.column.field === 'action'">

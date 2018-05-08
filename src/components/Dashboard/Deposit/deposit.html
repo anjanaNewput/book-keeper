@@ -1,12 +1,18 @@
-<entry-form :category="category" v-on:check="check">
+<entry-form :category="category" v-on:check="check" :payType="payType">
   <div slot="dropdown">
     <label class="col-md-4 col-xs-12">Cash Deposit to Bank:</label>
-    <div class="input-group col-md-8 col-xs-12">
-      <model-select :options="options" name="deposit-cat" v-model="category.text" v-validate="'required'" placeholder="Select option"></model-select>
+    <div class="col-md-8 col-xs-12">
+      <model-select :options="options" name="deposit-cat" :class="{'has-danger': errors.has('deposit-cat')}" v-model="category.text" v-validate="'required'" placeholder="Select option"></model-select>
       <span v-show="errors.has('deposit-cat')" class="error-text">{{ errors.first('deposit-cat')}}</span>
     </div>
   </div>
   <div slot="for">
     <label class="col-md-4 col-xs-12">Deposit For:</label>
+  </div>
+  <div slot="check-box-group">
+    <div class="col-xs-4">
+      <input class="form-check-input" name="payment-mode" type="radio" v-model="payType" id="bank" value="bank">
+      <label class="form-check-label" for="bank">Bank</label>
+    </div>
   </div>
 </entry-form>
