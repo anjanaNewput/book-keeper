@@ -1,12 +1,14 @@
 import { Validator } from 'vee-validate'
-
+import apiServices from '@/services/apiServices.js'
 export default {
   data () {
     return {
-      email: '',
-      password: '',
-      mob: '',
-      userName: '',
+      user: {
+        email: '',
+        password: '',
+        mob_num: '',
+        name: ''
+      },
       dictionary: {
         attributes: {
           'userName': 'Name',
@@ -42,12 +44,20 @@ export default {
   },
   methods: {
     register (e) {
+      console.log(e);
       this.$validator.validateAll().then((result) => {
         if (result) {
-          this.$localStorage.set('userLoggedIn', true)
-          this.$store.commit('checkUser', true)
-          this.$router.push('/dashboard')
-          // this.onRegistrationSuccess(this.email)
+          apiServices.SignUp(this.user).then((data) => {
+            console.log(data.body.response);
+            var email = data.body.response.user.email
+            this.$store.commit('setEmail', email)
+            this.$localStorage.set('email', email)
+            this.$localStorage.set('userLoggedIn', true)
+            this.$store.commit('checkUser', true)
+            this.$router.push('/dashboard')
+          }, (response) => {
+              console.log(response);
+          })
         }
       })
     }

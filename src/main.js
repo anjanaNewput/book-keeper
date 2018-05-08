@@ -6,6 +6,7 @@ import router from './router'
 import VeeValidate from 'vee-validate'
 import VueLocalStorage from 'vue-localstorage'
 import VueGoodTable from 'vue-good-table'
+import VueResource from 'vue-resource'
 
 import { store } from './store'
 import 'vue-good-table/dist/vue-good-table.css'
@@ -13,7 +14,7 @@ import 'vue-good-table/dist/vue-good-table.css'
 Vue.use(VeeValidate)
 Vue.use(VueLocalStorage)
 Vue.use(VueGoodTable)
-
+Vue.use(VueResource)
 Vue.config.productionTip = false
 
 // router intercepter
@@ -34,6 +35,15 @@ router.beforeEach((to, from, next) => {
     return next('/dashboard')
   }
   next()
+})
+
+Vue.http.interceptors.push(function (request) {
+  console.log('request')
+  // request.headers.set('X-CSRF-TOKEN', 'TOKEN');
+  // request.headers.set('Authorization', 'Bearer TOKEN');
+  return function (response) {
+    console.log('response')
+  }
 })
 
 /* eslint-disable no-new */

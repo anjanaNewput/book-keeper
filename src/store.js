@@ -3,7 +3,6 @@ import Vuex from 'vuex'
 
 Vue.use(Vuex)
 
-// @flow
 const store = new Vuex.Store({
   state: {
     index: 0,
