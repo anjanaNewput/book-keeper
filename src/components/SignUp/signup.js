@@ -51,19 +51,20 @@ export default {
         if (result) {
           this.isLoading = true
           apiServices.SignUp(this.user).then((data) => {
-            console.log(data);
             if(data.body.response) {
               var email = data.body.response.user.email
               this.$store.commit('setEmail', email)
               this.$localStorage.set('email', email)
               this.$localStorage.set('userLoggedIn', true)
               this.$store.commit('checkUser', true)
-              this.isLoading = false
               this.$router.push('/dashboard')
             } else {
-              this.validationErrors.push(data.body.errors)
-              console.log(this.validationErrors);
+              this.validationErrors = []
+              for (let key in data.body.errors) {
+                this.validationErrors.push(data.body.errors[key][0])
+              }
             }
+            this.isLoading = false
           })
         }
       })
