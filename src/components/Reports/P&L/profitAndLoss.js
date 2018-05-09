@@ -96,6 +96,9 @@ export default {
       }
       this.expenseTotal = sum
       return sum
+    },
+    printWindow () {
+      window.print()
     }
   },
   computed: {

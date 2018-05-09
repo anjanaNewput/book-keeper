@@ -1,7 +1,11 @@
 @import "./variables";
 
 .wrapper {
+  position: relative;
   text-align: left;
+  .wrapper-title {
+    padding-top: 15px;
+  }
   .links-wrapper {
     margin: 0 auto;
     padding: 10px;
@@ -22,6 +26,12 @@
         color: $theme-color;
       }
     }
+  }
+  .print-btn {
+
+    position: absolute;
+    right: 25px;
+    top: 5px;
   }
   .display-interval {
     label, span {

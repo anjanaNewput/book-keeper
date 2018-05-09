@@ -2,7 +2,7 @@ import moment from 'moment'
 
 import AppDataTable from '../../Common/AppTable/AppDataTable.vue'
 
-import data from '../../../assets/json/balanceSheet.json'
+// import data from '../../../assets/json/balanceSheet.json'
 
 export default {
   name: 'BalanceSheet',
@@ -36,19 +36,19 @@ export default {
           children: [
             {
               "name": "Capital",
-              "amount": 200000
+              "amount": Number(2000000).toLocaleString('en')
             },
             {
               "name": "Creditors",
-              "amount": 155555
+              "amount": Number(200000).toLocaleString('en')
             },
             {
               "name": "Payables",
-              "amount": 20000
+              "amount": Number(20000).toLocaleString('en')
             },
             {
               "name": "Loan",
-              "amount": 90000
+              "amount": Number(20000).toLocaleString('en')
             }
           ],
         },
@@ -58,27 +58,27 @@ export default {
           children: [
             {
               "name": "House",
-              "amount": 20000
+              "amount": Number(20000).toLocaleString('en')
             },
             {
               "name": "Car",
-              "amount": 200
+              "amount": Number(20000).toLocaleString('en')
             },
             {
               "name": "Debitors",
-              "amount": 298
+              "amount": Number(20000).toLocaleString('en')
             },
             {
               "name": "Advance",
-              "amount": 20000
+              "amount": Number(20000).toLocaleString('en')
             },
             {
               "name": "Cash A/C",
-              "amount": 208700
+              "amount": Number(20000).toLocaleString('en')
             },
             {
               "name": "Bank A/C",
-              "amount": 2000
+              "amount": Number(20000).toLocaleString('en')
             }
           ],
         }
@@ -92,9 +92,13 @@ export default {
     sumCount(rowObj) {
     	let sum = 0;
       for (let i = 0; i < rowObj.children.length; i++) {
-        sum += rowObj.children[i].amount;
+        console.log(parseFloat(rowObj.children[i].amount.replace(/,/g, '')))
+        sum += parseFloat(rowObj.children[i].amount.replace(/,/g, ''))
       }
-      return sum;
+      return Number(sum).toLocaleString('en')
+    },
+    printWindow () {
+      window.print()
     }
   },
   components: {
