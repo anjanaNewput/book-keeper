@@ -49,15 +49,16 @@ export default {
       console.log(e);
       this.$validator.validateAll().then((result) => {
         if (result) {
-          this.isLoading = true
-          apiServices.SignUp(this.user).then((data) => {
+          apiServices.signUp(this.user).then((data) => {
             if(data.body.response) {
               var email = data.body.response.user.email
               this.$store.commit('setEmail', email)
-              this.$localStorage.set('email', email)
-              this.$localStorage.set('userLoggedIn', true)
               this.$store.commit('checkUser', true)
-              this.$router.push('/dashboard')
+              if(this.$store.state.paymentDone) {
+                this.$router.push('/dashboard')
+              } else {
+                this.$router.push('/plan')
+              }
             } else {
               this.validationErrors = []
               for (let key in data.body.errors) {

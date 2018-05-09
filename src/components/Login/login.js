@@ -1,5 +1,5 @@
 import { Validator } from 'vee-validate'
-
+import apiServices from '@/services/apiServices.js'
 export default {
   data () {
     return {
@@ -15,7 +15,8 @@ export default {
           'password': 'Password',
           'mob': 'Mobile'
         }
-      }
+      },
+      isLoading: false
     }
   },
   mounted () {
@@ -45,23 +46,24 @@ export default {
   methods: {
     validateForm: function (scope) {
       this.$validator.validateAll(scope).then((result) => {
+        this.isLoading = true
         if (result) {
-          if (this.mail === 'anjana@newput.com' && this.password === '123456') {
-            this.onLoginSuccess(this.mail)
-          } else {
-             alert('Please Enter the correct email and password')
-             this.mail= ''
-             this.password= ''
-          }
+          apiServices.login({email: this.mail, password: this.password}).then((data) => {
+            console.log(data)
+            this.isLoading = false
+            this.onLoginSuccess(data.body.response.user.email)
+          })
         }
       })
     },
     onLoginSuccess (email) {
       this.$store.commit('setEmail', email)
-      this.$localStorage.set('email', email)
-      this.$localStorage.set('userLoggedIn', true)
       this.$store.commit('checkUser', true)
-      this.$router.push('/plan')
+      if(this.$store.state.paymentDone) {
+        this.$router.push('/dashboard')
+      } else {
+        this.$router.push('/plan')
+      }
     },
     loginViaEmail () {
       this.viaEmail = !this.viaEmail

@@ -26,7 +26,7 @@
             </div>
 
             <div class="btn-wrapper text-center">
-              <button class="btn app-btn">Login</button>
+              <button class="btn app-btn" :disabled="isLoading">Login</button>
             </div>
           </form>
           <form v-show="!viaEmail" class="login-form" @submit.prevent="validateForm('form-1')" data-vv-scope="form-1">
