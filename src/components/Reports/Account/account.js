@@ -79,6 +79,9 @@ export default {
         sum += rowObj.children[i].debitAmt;
       }
       return sum;
+    },
+    printWindow () {
+      window.print()
     }
   },
   computed: {

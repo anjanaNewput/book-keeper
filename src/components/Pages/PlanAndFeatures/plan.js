@@ -5,8 +5,11 @@ export default {
   methods: {
     payNow () {
       this.$store.commit('paymentDone', true)
-      this.$localStorage.set('paymentDone', true)
-      this.$router.push('/dashboard')
+      if(this.$store.state.isUserLogged) {
+        this.$router.push('/dashboard')
+      } else {
+        this.$router.push('/login')
+      }
     }
   }
 }

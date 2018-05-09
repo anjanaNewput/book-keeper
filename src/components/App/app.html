@@ -7,14 +7,14 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <router-link class="navbar-brand" to="/"><img class="logo" src="../../assets/img/logo.png"></router-link>
+        <router-link class="navbar-brand" to="/home"><img class="logo" src="../../assets/img/logo.png"></router-link>
       </div>
       <div class="collapse navbar-collapse" id="myNavbar" style="height: 0.994318px;">
         <ul class="nav navbar-nav navbar-right">
-          <router-link to="/" class="hidden-xs" tag="li">
+          <router-link to="/home" class="hidden-xs" tag="li">
             <a> Home </a>
           </router-link>
-          <router-link to="/" class="visible-xs" tag="li" data-toggle="collapse" data-target=".navbar-collapse">
+          <router-link to="/home" class="visible-xs" tag="li" data-toggle="collapse" data-target=".navbar-collapse">
             <a> Home</a>
           </router-link>
           <router-link to="/plan" class="hidden-xs" tag="li">
@@ -70,7 +70,7 @@
       </div>
     </div>
   </nav>
-  <nav class="breadcrumb" v-if="$breadcrumbs.length">You are here: 
+  <nav class="breadcrumb" v-if="$breadcrumbs.length">You are here:
     <router-link class="breadcrumb-item" v-for="(crumb, key) in $breadcrumbs" :to="crumb.path" :key="key">{{ crumb.meta.breadcrumb }}</router-link>
   </nav>
   <router-view class="page"/>

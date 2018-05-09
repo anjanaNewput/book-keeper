@@ -23,7 +23,6 @@
       .error-text {
         color: $red-color;
         font-weight: 400;
-        // padding-top: 10px;
       }
     }
     .btn-wrapper {
@@ -34,7 +33,7 @@
     }
   }
   .form-control.has-danger, .has-danger {
-    border: 2px solid $red-color;
+    border: 1px solid $red-color;
   }
   a:hover {
     cursor: pointer;

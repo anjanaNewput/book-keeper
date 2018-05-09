@@ -20,35 +20,40 @@
       padding: 10px;
       text-align: center;
     }
-
+    .error-wrap {
+      font-size: 16px;
+      padding: 15x;
+      text-align: center;
+    }
     .login-form, .signin-form {
       border: 1px solid $light-gray-color;
       border-radius: 5px;
       padding: 15px 20px;
       margin-bottom: 15px;
 
-        .form-group {
-          .control-label {
-            color: $theme-color;
-            font-weight: 400;
-          }
-        }
-        .btn-wrapper {
-          padding-top: 15px;
+      .form-group {
+        .control-label {
+          color: $theme-color;
+          font-weight: 400;
         }
       }
+      .btn-wrapper {
+        padding-top: 15px;
+      }
+    }
 
-      .other-links-wrapper {
-        border: 1px solid $light-gray-color;
-        border-radius: 5px;
-        padding: 15px 20px;
-        text-align: center;
-      }
+    .other-links-wrapper {
+      border: 1px solid $light-gray-color;
+      border-radius: 5px;
+      padding: 15px 20px;
+      text-align: center;
+    }
       a:hover {
         color: $theme-color;
       }
     }
 }
+
 
 @media screen and (max-width: 375px) {
   .login-page, .signup-page {

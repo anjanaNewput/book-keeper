@@ -13,14 +13,25 @@ const store = new Vuex.Store({
     debitorsData: [],
     creditorId: 0,
     debitorId: 0,
-    reportData: {}
+    reportData: {},
+    isunathorized: false
   },
   mutations: {
     setEmail (state, data) {
       state.email = data
+      if(data != ''){
+        Vue.localStorage.remove('email')
+      } else {
+        Vue.localStorage.set('email', data)
+      }
     },
     checkUser (state, data) {
       state.isUserLogged = data
+      if (!data) {
+        Vue.localStorage.remove('userLoggedIn')
+      } else {
+        Vue.localStorage.set('userLoggedIn', data)
+      }
     },
     setCreditorData (state, payload) {
       state.creditorsData.push({
@@ -32,6 +43,7 @@ const store = new Vuex.Store({
     },
     paymentDone (state, data) {
       state.paymentDone = data
+      Vue.localStorage.set('paymentDone', data)
     },
     setDebitorData (state, payload) {
       state.debitorsData.push({
@@ -43,6 +55,9 @@ const store = new Vuex.Store({
     },
     setReportData (state, payload) {
       state.reportData = payload.reportData[0]
+    },
+    Unathorized (state, payload) {
+      state.isunathorized = payload
     }
   },
   actions: {
