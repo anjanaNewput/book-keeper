@@ -16,9 +16,6 @@ export default {
     this.$store.commit('setEmail', this.$localStorage.get('email') != null ? this.$localStorage.get('email') : '')
     this.$store.commit('paymentDone', this.$localStorage.get('paymentDone') != null ? this.$localStorage.get('paymentDone') : false)
   },
-  updated () {
-      // console.log(this.$breadcrumbs)
-  },
   methods: {
     logout: function () {
       this.$store.commit('setEmail', '')

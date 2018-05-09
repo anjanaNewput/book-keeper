@@ -13,7 +13,8 @@ const store = new Vuex.Store({
     debitorsData: [],
     creditorId: 0,
     debitorId: 0,
-    reportData: {}
+    reportData: {},
+    isunathorized: false
   },
   mutations: {
     setEmail (state, data) {
@@ -54,6 +55,9 @@ const store = new Vuex.Store({
     },
     setReportData (state, payload) {
       state.reportData = payload.reportData[0]
+    },
+    Unathorized (state, payload) {
+      state.isunathorized = payload
     }
   },
   actions: {

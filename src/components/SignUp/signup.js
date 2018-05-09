@@ -46,7 +46,7 @@ export default {
   },
   methods: {
     register (e) {
-      console.log(e);
+      this.isLoading = true
       this.$validator.validateAll().then((result) => {
         if (result) {
           apiServices.signUp(this.user).then((data) => {

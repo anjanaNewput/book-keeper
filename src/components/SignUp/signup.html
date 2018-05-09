@@ -42,7 +42,7 @@
             <div class="row btn-wrapper">
               <div class="text-center">
                 <button class="btn app-btn" :disabled="isLoading">
-                  <i class="fa fa-spinner fa-spin" v-show="isLoading" style="font-size:24px"></i>Sign Up
+                  <i class="fa fa-spinner fa-spin" v-if="isLoading" style="font-size:24px"></i>Sign Up
                 </button>
               </div>
             </div>

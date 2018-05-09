@@ -20,7 +20,11 @@
       padding: 10px;
       text-align: center;
     }
-
+    .error-wrap {
+      font-size: 16px;
+      padding: 15x;
+      text-align: center;
+    }
     .login-form, .signin-form {
       border: 1px solid $light-gray-color;
       border-radius: 5px;
@@ -35,11 +39,6 @@
       }
       .btn-wrapper {
         padding-top: 15px;
-      }
-      .error-wrap {
-        font-size: 16px;
-        padding: 15x;
-        text-align: center;
       }
     }
 

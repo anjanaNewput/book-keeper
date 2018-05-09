@@ -16,7 +16,8 @@ export default {
           'mob': 'Mobile'
         }
       },
-      isLoading: false
+      isLoading: false,
+      validationErrors: []
     }
   },
   mounted () {
@@ -45,13 +46,19 @@ export default {
   },
   methods: {
     validateForm: function (scope) {
+      this.isLoading = true
       this.$validator.validateAll(scope).then((result) => {
-        this.isLoading = true
         if (result) {
-          apiServices.login({email: this.mail, password: this.password}).then((data) => {
-            console.log(data)
+          apiServices.login({"email": this.mail, "password": this.password}).then((data) => {
+            if(data.body.status && data.body.response) {
+              this.onLoginSuccess(data.body.response.user.email)
+              this.isLoading = false
+            } else {
+              this.validationErrors = []
+              this.validationErrors.push(data.body.errors)
+              this.isLoading = false
+            }
             this.isLoading = false
-            this.onLoginSuccess(data.body.response.user.email)
           })
         }
       })
@@ -67,6 +74,12 @@ export default {
     },
     loginViaEmail () {
       this.viaEmail = !this.viaEmail
+    }
+  },
+  computed: {
+    isUnauthorizedUser () {
+      this.isLoading = false
+      return this.$store.state.isunathorized
     }
   }
 }

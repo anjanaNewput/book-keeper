@@ -130,7 +130,7 @@ export default new Router({
       component: CompanyInfo,
       meta: {
         authRequired: true,
-        breadcrumb: 'CompanyInfo '
+        breadcrumb: 'Company Info '
       }
     },
     {
@@ -157,7 +157,7 @@ export default new Router({
       component: AddMore,
       meta: {
         authRequired: true,
-        breadcrumb: 'AddMore '
+        breadcrumb: 'Add More '
       }
     },
     {
@@ -175,7 +175,7 @@ export default new Router({
       component: ProfitAndLoss,
       meta: {
         authRequired: true,
-        breadcrumb: 'ProfitAndLoss '
+        breadcrumb: 'Profit And Loss '
       }
     },
     {
@@ -193,7 +193,7 @@ export default new Router({
       component: LedgerAccount,
       meta: {
         authRequired: true,
-        breadcrumb: 'LedgerAccount '
+        breadcrumb: 'Ledger Account '
       }
     },
     {
@@ -201,7 +201,7 @@ export default new Router({
       name: 'Plan',
       component: PlanAndPrice,
       meta: {
-        breadcrumb: 'PlanAndPrice '
+        breadcrumb: 'Plan And Price '
       }
     },
     {
@@ -210,7 +210,7 @@ export default new Router({
       component: TimeInterval,
       meta: {
         authRequired: true,
-        breadcrumb: 'TimeInterval '
+        breadcrumb: 'Time Interval '
       }
     }
   ],
